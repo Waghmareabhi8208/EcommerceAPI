@@ -1,5 +1,7 @@
 ﻿using Ecommerce.API.Data;
+using Ecommerce.API.DTOs;
 using Ecommerce.API.Entities;
+using Ecommerce.API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ecommerce.API.Controllers
@@ -8,28 +10,26 @@ namespace Ecommerce.API.Controllers
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IProductService _service;
 
-        public ProductController(AppDbContext context)
+        public ProductController(IProductService service)
         {
-            _context = context;
+            _service = service;
         }
 
         // Gives the list of All products
         [HttpGet]
-        public IActionResult GetProducts()
+        public async Task<IActionResult> GetProducts()
         {
-            var products = _context.Products.ToList();
+            var products = await _service.GetAllAsync();
 
             return Ok(products);
         }
 
         [HttpPost]
-        public IActionResult AddProduct(Product product)
+        public async Task<IActionResult> AddProduct(ProductCreateDto dto)
         {
-            _context.Products.Add(product);
-
-            _context.SaveChanges();
+            var product = await _service.AddAsync(dto);
 
             return Ok(product);
         }

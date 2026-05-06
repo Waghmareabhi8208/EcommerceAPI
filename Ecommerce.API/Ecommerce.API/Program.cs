@@ -1,4 +1,7 @@
 using Ecommerce.API.Data;
+using Ecommerce.API.Interfaces;
+using Ecommerce.API.Repositories;
+using Ecommerce.API.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +19,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+// Added dependcy injection for product repository and ProductService
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 
