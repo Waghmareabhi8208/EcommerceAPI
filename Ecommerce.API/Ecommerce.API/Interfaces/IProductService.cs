@@ -11,5 +11,7 @@ namespace Ecommerce.API.Interfaces
         Task<ProductResponseDto?> GetByIdAsync(int id);
 
         Task<ProductResponseDto?> UpdateAsync(int id, ProductUpdateDto dto);
+
+        Task<bool> DeleteAsync(int id);
     }
 }

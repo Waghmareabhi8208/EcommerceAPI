@@ -33,7 +33,7 @@ namespace Ecommerce.API.Repositories
         {
             var existingProduct = await _context.Products.FindAsync(id);
 
-            if (existingProduct != null)
+            if (existingProduct == null)
             {
                 return null;
             }
@@ -45,6 +45,20 @@ namespace Ecommerce.API.Repositories
 
             await _context.SaveChangesAsync();
             return existingProduct;
+        }
+
+        public async Task<bool> DeleteAsync(int id)
+        {
+            var product = await _context.Products.FindAsync(id);
+
+            if (product == null) 
+                return false;
+
+            _context.Products.Remove(product);
+
+            await _context.SaveChangesAsync();
+
+            return true;
         }
     }
 }

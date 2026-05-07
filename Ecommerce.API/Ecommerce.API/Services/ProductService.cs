@@ -91,5 +91,10 @@ namespace Ecommerce.API.Services
                 Stock = updateProduct.Stock,
             };
         }
+
+        public async Task<bool> DeleteAsync(int id)
+        {
+            return await _repository.DeleteAsync(id);
+        }
     }
 }
