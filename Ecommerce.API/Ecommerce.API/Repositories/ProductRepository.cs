@@ -28,6 +28,23 @@ namespace Ecommerce.API.Repositories
         {
             return await _context.Products.FindAsync(id);
         }
-        
+
+        public async Task<Product?> UpdateAsync(int id, Product product)
+        {
+            var existingProduct = await _context.Products.FindAsync(id);
+
+            if (existingProduct != null)
+            {
+                return null;
+            }
+
+            existingProduct.Name = product.Name;
+            existingProduct.Description = product.Description;
+            existingProduct.Price = product.Price;
+            existingProduct.Stock = product.Stock;
+
+            await _context.SaveChangesAsync();
+            return existingProduct;
+        }
     }
 }

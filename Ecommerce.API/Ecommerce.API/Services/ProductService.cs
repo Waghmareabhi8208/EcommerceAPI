@@ -66,5 +66,30 @@ namespace Ecommerce.API.Services
                 Stock = product.Stock
             };
         }
+
+        public async Task<ProductResponseDto?> UpdateAsync(int id, ProductUpdateDto dto)
+        {
+            var product = new Product
+            {
+                Name = dto.Name,
+                Description = dto.Description,
+                Price = dto.Price,
+                Stock = dto.Stock
+            };
+
+            var updateProduct = await _repository.UpdateAsync(id, product);
+
+            if(updateProduct == null)
+                return null;
+
+            return new ProductResponseDto
+            {
+                Id = updateProduct.Id,
+                Name = updateProduct.Name,
+                Description = updateProduct.Description,
+                Price = updateProduct.Price,
+                Stock = updateProduct.Stock,
+            };
+        }
     }
 }
