@@ -7,5 +7,7 @@ namespace Ecommerce.API.Interfaces
         Task<List<Product>> GetAllAsync();
 
         Task<Product> AddAsync(Product product);
+
+        Task<Product?> GetByIdAsync(int  id);
     }
 }

@@ -50,6 +50,21 @@ namespace Ecommerce.API.Services
             };
         }
 
-     
+        public async Task<ProductResponseDto?> GetByIdAsync(int id)
+        {
+            var product = await _repository.GetByIdAsync(id);
+
+            if(product == null)
+                return null;
+
+            return new ProductResponseDto
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                Price = product.Price,
+                Stock = product.Stock
+            };
+        }
     }
 }

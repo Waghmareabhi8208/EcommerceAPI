@@ -18,8 +18,24 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "product",
-        "Type": "Ecommerce.API.Entities.Product",
+        "Name": "dto",
+        "Type": "Ecommerce.API.DTOs.ProductCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.ProductController",
+    "Method": "GetProductById",
+    "RelativePath": "api/Product/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

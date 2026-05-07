@@ -7,5 +7,7 @@ namespace Ecommerce.API.Interfaces
         Task<List<ProductResponseDto>> GetAllAsync();
 
         Task<ProductResponseDto> AddAsync(ProductCreateDto dto);
+
+        Task<ProductResponseDto?> GetByIdAsync(int id);
     }
 }

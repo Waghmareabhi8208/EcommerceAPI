@@ -11,7 +11,7 @@ namespace Ecommerce.API.Validators
                 .NotEmpty()
                 .MinimumLength(3);
 
-            RuleFor(x => x.Description)
+            RuleFor(x => x.Description) 
                 .NotEmpty();
 
             RuleFor(x => x.Price)
