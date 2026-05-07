@@ -2,7 +2,10 @@ using Ecommerce.API.Data;
 using Ecommerce.API.Interfaces;
 using Ecommerce.API.Repositories;
 using Ecommerce.API.Services;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +26,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Added dependcy injection for product repository and ProductService
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
+
+// Register FluentValidation into Program.cs
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
 var app = builder.Build();
 
