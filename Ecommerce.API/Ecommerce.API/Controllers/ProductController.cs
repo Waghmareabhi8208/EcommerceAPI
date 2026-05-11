@@ -29,6 +29,7 @@ namespace Ecommerce.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> AddProduct(ProductCreateDto dto)
         {
             var product = await _service.AddAsync(dto);
@@ -48,6 +49,7 @@ namespace Ecommerce.API.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> UpdateProduct(int id,ProductUpdateDto dto)
         {
             var product = await _service.UpdateAsync(id,dto);
@@ -59,7 +61,7 @@ namespace Ecommerce.API.Controllers
         }
 
         [HttpDelete("{id}")]
-
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             var deleted = await _service.DeleteAsync(id);

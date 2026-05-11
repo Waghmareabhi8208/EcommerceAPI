@@ -1,6 +1,8 @@
 ﻿using Ecommerce.API.DTOs.Auth;
 using Ecommerce.API.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Ecommerce.API.Controllers
 {
@@ -38,6 +40,27 @@ namespace Ecommerce.API.Controllers
                 return Unauthorized("Invalid Email or password");
 
             return Ok(result);
+        }
+
+        [HttpGet("me")]
+        [Authorize]
+        public IActionResult GetCurrentUser()
+        {
+            var userId =
+                User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            var email =
+                User.FindFirst(ClaimTypes.Email)?.Value;
+
+            var role =
+                User.FindFirst(ClaimTypes.Role)?.Value;
+
+            return Ok(new
+            {
+                UserId = userId,
+                Email = email,
+                Role = role
+            });
         }
     }
 }
