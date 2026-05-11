@@ -24,9 +24,9 @@ namespace Ecommerce.API.Services
         public async Task<AuthResponseDto> RegisterAsync(RegisterDto dto)
         {
             // Check if email already exists
-            var existingUSer = _context.Users.FirstOrDefaultAsync(x => x.Email == dto.Email);
+            var existingUSer = await _context.Users.FirstOrDefaultAsync(x => x.Email == dto.Email);
 
-            if (existingUSer == null) 
+            if (existingUSer != null) 
             {
                 return null;
             }
@@ -95,7 +95,7 @@ namespace Ecommerce.API.Services
 
             var key = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(
-                    _configuration["Jwt:Key"]));
+                    _configuration["Jwt:Key"]!));
 
             var credentials = new SigningCredentials(
                 key,

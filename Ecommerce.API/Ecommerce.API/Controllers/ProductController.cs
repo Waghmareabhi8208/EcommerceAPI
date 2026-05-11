@@ -2,12 +2,14 @@
 using Ecommerce.API.DTOs;
 using Ecommerce.API.Entities;
 using Ecommerce.API.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ecommerce.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _service;
