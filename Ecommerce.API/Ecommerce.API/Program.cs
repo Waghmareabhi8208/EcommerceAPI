@@ -67,6 +67,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
 
+
 // Register FluentValidation into Program.cs
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
@@ -92,6 +93,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 // Register AuthService in Program.cs
 builder.Services.AddScoped<IAuthService, AuthService>();
+
+// Register CartService in Program.cs
+builder.Services.AddScoped<ICartService, CartService>();
 
 var app = builder.Build();
 
