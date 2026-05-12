@@ -12,5 +12,7 @@ namespace Ecommerce.API.Data
 
         public DbSet<Product> Products => Set<Product>();
         public DbSet<User> Users => Set<User>();
+        public DbSet<Cart> Carts => Set<Cart>();
+        public DbSet<CartItem> CartItems => Set<CartItem>();
     }
 }
