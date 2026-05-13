@@ -44,5 +44,55 @@ namespace Ecommerce.API.Controllers
 
             return Ok(cart);
         }
+
+        // Remove Product Api
+        [HttpDelete("{productId}")]
+        public async Task<IActionResult> RemoveFromCart(int productId)
+        {
+            int userId = int.Parse(
+                User.FindFirst(ClaimTypes.NameIdentifier)!
+                .Value);
+
+            bool removed = await _cartService.RemoveFromCartAsync(userId, productId);
+
+            if(!removed)
+            {
+                return NotFound("Product not found in cart");
+            }
+
+            return NoContent();
+        }
+
+
+        // Update Quantity Api
+        [HttpPut]
+        public async Task<IActionResult> UpdateQuantity(UpdateCartQuantityDto dto)
+        {
+            int userId = int.Parse(
+                User.FindFirst(ClaimTypes.NameIdentifier)!
+                .Value);
+
+            bool updated = await _cartService.UpdateQuantityAsync(userId, dto.ProductId,dto.Quantity);
+
+            if (!updated)
+            {
+                return NotFound("Product not found in cart");
+            }
+
+            return Ok("Cart Updated");
+        }
+
+        // Clear Cart Api
+        [HttpDelete]
+        public async Task<IActionResult> ClearCart()
+        {
+            int userId = int.Parse(
+                User.FindFirst(ClaimTypes.NameIdentifier)!
+                .Value);
+
+            await _cartService.ClearCartAsync(userId);
+
+            return NoContent();
+        }
     }
 }
