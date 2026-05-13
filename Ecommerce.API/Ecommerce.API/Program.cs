@@ -97,6 +97,9 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 // Register CartService in Program.cs
 builder.Services.AddScoped<ICartService, CartService>();
 
+// Register OrderService in Program.cs
+builder.Services.AddScoped<IOrderService, OrderService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
