@@ -68,6 +68,48 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Ecommerce.API.Controllers.CartController",
+    "Method": "UpdateQuantity",
+    "RelativePath": "api/Cart",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Ecommerce.API.DTOs.Cart.UpdateCartQuantityDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.CartController",
+    "Method": "ClearCart",
+    "RelativePath": "api/Cart",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.CartController",
+    "Method": "RemoveFromCart",
+    "RelativePath": "api/Cart/{productId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Ecommerce.API.Controllers.ProductController",
     "Method": "GetProducts",
     "RelativePath": "api/Product",
