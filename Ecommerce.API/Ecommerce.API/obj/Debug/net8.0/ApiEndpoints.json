@@ -130,6 +130,43 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Ecommerce.API.Controllers.OrderController",
+    "Method": "CancelOrder",
+    "RelativePath": "api/Order/{orderId}/cancel",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.OrderController",
+    "Method": "UpdateStatus",
+    "RelativePath": "api/Order/admin/{orderId}/status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Ecommerce.API.DTOs.Order.UpdateOrderStatusDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Ecommerce.API.Controllers.ProductController",
     "Method": "GetProducts",
     "RelativePath": "api/Product",

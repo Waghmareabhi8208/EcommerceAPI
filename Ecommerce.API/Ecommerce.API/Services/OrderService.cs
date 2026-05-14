@@ -148,5 +148,19 @@ namespace Ecommerce.API.Services
             await _context.SaveChangesAsync();
             return true;
         }
+
+        public async Task<bool> UpdateOrderStatusAsync(int orderId, string status)
+        {
+            var order = await _context.Orders
+                .FirstOrDefaultAsync(x => x.Id == orderId);
+
+            if (order == null) 
+                return false;
+
+            order.Status = status;
+
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }

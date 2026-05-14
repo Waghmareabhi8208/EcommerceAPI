@@ -1,4 +1,5 @@
-﻿using Ecommerce.API.Interfaces;
+﻿using Ecommerce.API.DTOs.Order;
+using Ecommerce.API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
@@ -66,6 +67,20 @@ namespace Ecommerce.API.Controllers
             }
 
             return Ok("Order cancelled successfully");
+        }
+
+        // Admin endpoint to update order status
+        [HttpPut("admin/{orderId}/status")]
+        public async Task<IActionResult> UpdateStatus(int orderId,UpdateOrderStatusDto dto)
+        {
+            bool updated =  await _orderService.UpdateOrderStatusAsync(orderId, dto.Status);
+
+            if(!updated)
+            {
+                return NotFound();
+            }
+
+            return Ok("Order status updated");
         }
     }
 }
