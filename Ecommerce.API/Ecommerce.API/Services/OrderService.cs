@@ -34,15 +34,27 @@ namespace Ecommerce.API.Services
             decimal total = 0;
 
             foreach (var item in cart.CartItems)
-            {
+            {   
+                // Stock Validation
+                if (item.Quantity > item.Product.Stock)
+                {
+                    return null;
+                }
+
+                // Add order item
                 order.OrderItems.Add(new OrderItem
                 {
                     ProductId = item.ProductId,
                     Quantity = item.Quantity,
+                    // Snapshot price
                     Price = item.Product.Price
 
                 });
 
+                // Reduce stock
+                item.Product.Stock -= item.Quantity;
+                
+                // Calculate total
                 total += item.Product.Price * item.Quantity;
             }
 
