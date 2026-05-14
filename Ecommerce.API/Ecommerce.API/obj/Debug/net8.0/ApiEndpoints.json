@@ -131,6 +131,22 @@
   },
   {
     "ContainingType": "Ecommerce.API.Controllers.OrderController",
+    "Method": "GetOrderById",
+    "RelativePath": "api/Order/{orderId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.OrderController",
     "Method": "CancelOrder",
     "RelativePath": "api/Order/{orderId}/cancel",
     "HttpMethod": "PUT",

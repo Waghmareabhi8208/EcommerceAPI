@@ -51,6 +51,28 @@ namespace Ecommerce.API.Controllers
             return Ok(orders);
         }
 
+
+        //Api for Get details of particular order
+        [HttpGet("{orderId}")]
+        public async Task<IActionResult> GetOrderById(int orderId)
+        {
+            int userId = int.Parse(
+                User.FindFirst(ClaimTypes.NameIdentifier)!
+                    .Value);
+
+            var order =
+                await _orderService.GetOrderByIdAsync(
+                    userId,
+                    orderId);
+
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(order);
+        }
+
         // Api to cancel order
         [HttpPut("{orderId}/cancel")]
         public async Task<IActionResult> CancelOrder(int orderId)
@@ -71,6 +93,7 @@ namespace Ecommerce.API.Controllers
 
         // Admin endpoint to update order status
         [HttpPut("admin/{orderId}/status")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateStatus(int orderId,UpdateOrderStatusDto dto)
         {
             bool updated =  await _orderService.UpdateOrderStatusAsync(orderId, dto.Status);
