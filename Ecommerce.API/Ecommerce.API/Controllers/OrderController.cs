@@ -1,6 +1,7 @@
 ﻿using Ecommerce.API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 using System.Security.Claims;
 
 namespace Ecommerce.API.Controllers
@@ -47,6 +48,24 @@ namespace Ecommerce.API.Controllers
             var orders = await _orderService.getOrderAsync(userId);
             
             return Ok(orders);
+        }
+
+        // Api to cancel order
+        [HttpPut("{orderId}/cancel")]
+        public async Task<IActionResult> CancelOrder(int orderId)
+        {
+            int userId = int.Parse(
+                User.FindFirst(ClaimTypes.NameIdentifier)!
+                .Value);
+
+            bool cancelled = await _orderService.CancelOrderAsync(userId,orderId);
+
+            if(!cancelled)
+            {
+                return BadRequest("Order can not be cancelled");
+            }
+
+            return Ok("Order cancelled successfully");
         }
     }
 }

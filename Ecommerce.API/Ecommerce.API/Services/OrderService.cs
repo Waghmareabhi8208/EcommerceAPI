@@ -122,5 +122,31 @@ namespace Ecommerce.API.Services
                        }).ToList()
                }).ToList();
         }
+
+        public async Task<bool> CancelOrderAsync(int userId, int orderId)
+        {
+            var order = await _context.Orders
+                .Include(x => x.OrderItems)
+                .ThenInclude(x => x.Product)
+                .FirstOrDefaultAsync(x => x.Id == orderId && x.UserId == userId);
+
+            if (order == null)
+                return false;
+
+            // Prevent invalid Cancellation
+            if(order.Status == "Delivered" ||  order.Status == "Cancelled")
+                return false;
+
+            // Restore Stock
+            foreach(var item in order.OrderItems)
+            {
+                item.Product.Stock += item.Quantity;
+            }
+
+            order.Status = "Cancelled";
+
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }

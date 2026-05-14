@@ -6,5 +6,7 @@ namespace Ecommerce.API.Interfaces
     {
         Task<OrderResponseDto?> PlaceOrderAsync(int userId);
         Task<List<OrderResponseDto>> getOrderAsync(int userId);
+
+        Task<bool> CancelOrderAsync(int userId,int orderId);
     }
 }
