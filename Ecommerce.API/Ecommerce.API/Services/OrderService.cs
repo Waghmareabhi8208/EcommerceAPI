@@ -194,5 +194,36 @@ namespace Ecommerce.API.Services
                 }).ToList()
             };
         }
+
+        public async Task<List<OrderResponseDto>> GetAllOrdersAsync()
+        {
+            var orders = await _context.Orders
+                .Include(x => x.OrderItems)
+                .ThenInclude(x => x.Product)
+                .ToListAsync();
+
+            return orders.Select(order =>new OrderResponseDto
+           {
+               OrderId = order.Id,
+
+               TotalAmount = order.TotalAmount,
+
+               Status = order.Status,
+
+               CreatedAt = order.CreatedAt,
+
+               Items = order.OrderItems.Select(item =>
+                   new OrderItemResponseDto
+                   {
+                       ProductName = item.Product.Name,
+
+                       Quantity = item.Quantity,
+
+                       Price = item.Price,
+
+                       TotalPrice = item.Price * item.Quantity
+                   }).ToList()
+            }).ToList();
+        }
     }
 }

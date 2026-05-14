@@ -183,6 +183,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Ecommerce.API.Controllers.OrderController",
+    "Method": "GetAllOrders",
+    "RelativePath": "api/Order/admin/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Ecommerce.API.Controllers.ProductController",
     "Method": "GetProducts",
     "RelativePath": "api/Product",

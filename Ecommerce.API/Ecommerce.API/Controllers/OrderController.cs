@@ -105,5 +105,16 @@ namespace Ecommerce.API.Controllers
 
             return Ok("Order status updated");
         }
+
+        // Api for admin to see customers all order details
+        [HttpGet("admin/all")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetAllOrders()
+        {
+            var orders =
+                await _orderService.GetAllOrdersAsync();
+
+            return Ok(orders);
+        }
     }
 }
