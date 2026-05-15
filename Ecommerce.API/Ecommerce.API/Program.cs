@@ -100,6 +100,9 @@ builder.Services.AddScoped<ICartService, CartService>();
 // Register OrderService in Program.cs
 builder.Services.AddScoped<IOrderService, OrderService>();
 
+// Register AddressService in Program.cs
+builder.Services.AddScoped<IAddressService, AddressService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

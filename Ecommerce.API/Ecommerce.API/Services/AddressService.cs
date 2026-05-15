@@ -22,9 +22,9 @@ namespace Ecommerce.API.Services
                     .Where(x => x.UserId == userId && x.IsDefault)
                     .ToListAsync();
 
-                foreach (var address in existingDefaults)
+                foreach (var existingAddress in existingDefaults)
                 {
-                    address.IsDefault = false;
+                    existingAddress.IsDefault = false;
                 }
            }
 
