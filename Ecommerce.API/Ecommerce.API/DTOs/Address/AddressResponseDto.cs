@@ -12,6 +12,6 @@ namespace Ecommerce.API.DTOs.Address
         public string State { get; set; } = string.Empty;
         public string PostalCode { get; set; } = string.Empty;
         public string Country { get; set; } = string.Empty;
-        public bool isDefault { get; set; }
+        public bool IsDefault { get; set; }
     }
 }
