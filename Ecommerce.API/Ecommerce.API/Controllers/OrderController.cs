@@ -2,7 +2,6 @@
 using Ecommerce.API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
 using System.Security.Claims;
 
 namespace Ecommerce.API.Controllers
@@ -115,6 +114,19 @@ namespace Ecommerce.API.Controllers
                 await _orderService.GetAllOrdersAsync();
 
             return Ok(orders);
+        }
+
+        // Endpoint for admin to get specific customer order details
+        [HttpGet("admin/{orderId}")]
+        [Authorize(Roles ="Admin")]
+        public async Task<IActionResult> GetAnyOrderById(int orderId)
+        {
+            var order = await _orderService.GetAnyOrderByIdAsync(orderId);
+
+            if(order == null)
+                return NotFound();
+
+            return Ok(order);
         }
     }
 }

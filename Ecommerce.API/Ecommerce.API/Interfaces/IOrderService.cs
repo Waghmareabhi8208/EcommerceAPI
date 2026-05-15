@@ -10,6 +10,6 @@ namespace Ecommerce.API.Interfaces
         Task<OrderResponseDto?> GetOrderByIdAsync(int userId, int orderId);
         Task<bool> CancelOrderAsync(int userId,int orderId);
         Task<bool> UpdateOrderStatusAsync(int orderId,string status);
-
+        Task<OrderResponseDto?>GetAnyOrderByIdAsync(int  orderId);
     }
 }

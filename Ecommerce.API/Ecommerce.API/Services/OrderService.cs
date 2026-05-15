@@ -225,5 +225,34 @@ namespace Ecommerce.API.Services
                    }).ToList()
             }).ToList();
         }
+
+        // Admin can see one specific customer order details
+        public async Task<OrderResponseDto?> GetAnyOrderByIdAsync(int orderId)
+        {
+            var order = await _context.Orders
+                .Include(x => x.OrderItems)
+                .ThenInclude(x => x.Product)
+                .FirstOrDefaultAsync(x => x.Id == orderId);
+
+            if(order == null)
+                return null;
+
+            return new OrderResponseDto
+            {
+                OrderId = order.Id,
+                TotalAmount = order.TotalAmount,
+                Status = order.Status,
+                CreatedAt = order.CreatedAt,
+
+                Items = order.OrderItems.Select(item =>
+                new OrderItemResponseDto
+                {
+                    ProductName = item.Product.Name,
+                    Quantity = item.Quantity,
+                    Price = item.Price,
+                    TotalPrice = item.Price * item.Quantity
+                }).ToList()
+            };
+        }
     }
 }
