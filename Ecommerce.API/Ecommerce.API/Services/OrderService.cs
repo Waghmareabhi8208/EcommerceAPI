@@ -198,6 +198,7 @@ namespace Ecommerce.API.Services
         public async Task<List<OrderResponseDto>> GetAllOrdersAsync()
         {
             var orders = await _context.Orders
+                .Include(x => x.User)
                 .Include(x => x.OrderItems)
                 .ThenInclude(x => x.Product)
                 .ToListAsync();
@@ -205,6 +206,10 @@ namespace Ecommerce.API.Services
             return orders.Select(order =>new OrderResponseDto
            {
                OrderId = order.Id,
+               
+               CustomerName = order.User.Name,
+
+               CustomerEmail = order.User.Email,
 
                TotalAmount = order.TotalAmount,
 
@@ -230,28 +235,40 @@ namespace Ecommerce.API.Services
         public async Task<OrderResponseDto?> GetAnyOrderByIdAsync(int orderId)
         {
             var order = await _context.Orders
+                .Include(x => x.User)
                 .Include(x => x.OrderItems)
                 .ThenInclude(x => x.Product)
                 .FirstOrDefaultAsync(x => x.Id == orderId);
 
-            if(order == null)
+            if (order == null)
                 return null;
 
             return new OrderResponseDto
             {
                 OrderId = order.Id,
+
+                CustomerName = order.User.Name,
+
+                CustomerEmail = order.User.Email,
+
                 TotalAmount = order.TotalAmount,
+
                 Status = order.Status,
+
                 CreatedAt = order.CreatedAt,
 
                 Items = order.OrderItems.Select(item =>
-                new OrderItemResponseDto
-                {
-                    ProductName = item.Product.Name,
-                    Quantity = item.Quantity,
-                    Price = item.Price,
-                    TotalPrice = item.Price * item.Quantity
-                }).ToList()
+                    new OrderItemResponseDto
+                    {
+                        ProductName = item.Product.Name,
+
+                        Quantity = item.Quantity,
+
+                        Price = item.Price,
+
+                        TotalPrice =
+                            item.Price * item.Quantity
+                    }).ToList()
             };
         }
     }
