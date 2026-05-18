@@ -1,5 +1,6 @@
 ﻿using Ecommerce.API.DTOs.Cart;
 using Ecommerce.API.Interfaces;
+using Ecommerce.API.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -93,6 +94,27 @@ namespace Ecommerce.API.Controllers
             await _cartService.ClearCartAsync(userId);
 
             return NoContent();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PlaceOrder(int addressId)
+        {
+            int userId = int.Parse(
+                User.FindFirst(ClaimTypes.NameIdentifier)!
+                    .Value);
+
+            var order =
+                await _orderService.PlaceOrderAsync(
+                    userId,
+                    addressId);
+
+            if (order == null)
+            {
+                return BadRequest(
+                    "Cart is empty or invalid address");
+            }
+
+            return Ok(order);
         }
     }
 }

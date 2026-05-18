@@ -26,9 +26,35 @@ namespace Ecommerce.API.Services
                 return null;
             }
 
+            // Get selected address
+            var address = await _context.Addresses
+                .FirstOrDefaultAsync(x =>
+                    x.Id == addressId &&
+                    x.UserId == userId);
+
+            // Validate address ownership
+            if (address == null)
+            {
+                return null;
+            }
+
             var order = new Order
             {
-                UserId = userId
+                UserId = userId,
+
+                ShippingFullName = address.FullName,
+
+                ShippingPhoneNumber = address.PhoneNumber,
+
+                ShippingStreet = address.Street,
+
+                ShippingCity = address.City,
+
+                ShippingState = address.State,
+
+                ShippingPostalCode = address.PostalCode,
+
+                ShippingCountry = address.Country
             };
 
             decimal total = 0;

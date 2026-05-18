@@ -4,7 +4,7 @@ namespace Ecommerce.API.Interfaces
 {
     public interface IOrderService
     {
-        Task<OrderResponseDto?> PlaceOrderAsync(int userId);
+        Task<OrderResponseDto?> PlaceOrderAsync(int userId,int addressId);
         Task<List<OrderResponseDto>> getOrderAsync(int userId);
         Task<List<OrderResponseDto>> GetAllOrdersAsync();
         Task<OrderResponseDto?> GetOrderByIdAsync(int userId, int orderId);
