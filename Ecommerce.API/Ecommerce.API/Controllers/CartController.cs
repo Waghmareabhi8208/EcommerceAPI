@@ -95,26 +95,5 @@ namespace Ecommerce.API.Controllers
 
             return NoContent();
         }
-
-        [HttpPost]
-        public async Task<IActionResult> PlaceOrder(int addressId)
-        {
-            int userId = int.Parse(
-                User.FindFirst(ClaimTypes.NameIdentifier)!
-                    .Value);
-
-            var order =
-                await _orderService.PlaceOrderAsync(
-                    userId,
-                    addressId);
-
-            if (order == null)
-            {
-                return BadRequest(
-                    "Cart is empty or invalid address");
-            }
-
-            return Ok(order);
-        }
     }
 }

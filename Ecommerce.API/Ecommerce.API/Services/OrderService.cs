@@ -14,7 +14,7 @@ namespace Ecommerce.API.Services
         {
             _context = context;
         }
-        public async Task<OrderResponseDto?> PlaceOrderAsync(int userId)
+        public async Task<OrderResponseDto?> PlaceOrderAsync(int userId,int addressId)
         {
             var cart = await _context.Carts
                 .Include(x => x.CartItems)
@@ -118,10 +118,11 @@ namespace Ecommerce.API.Services
         public async Task<List<OrderResponseDto>> getOrderAsync(int userId)
         {
             var orders = await _context.Orders
-               .Include(x => x.OrderItems)
-               .ThenInclude(x => x.Product)
-               .Where(x => x.UserId == userId)
-               .ToListAsync();
+                .Include(x => x.User)
+                .Include(x => x.OrderItems)
+                .ThenInclude(x => x.Product)
+                .Where(x => x.UserId == userId)
+                .ToListAsync();
 
             return orders.Select(order =>
                new OrderResponseDto
@@ -133,6 +134,10 @@ namespace Ecommerce.API.Services
                    Status = order.Status,
 
                    CreatedAt = order.CreatedAt,
+
+                   CustomerName = order.User.Name,
+
+                   CustomerEmail = order.User.Email,
 
                    Items = order.OrderItems.Select(item =>
                        new OrderItemResponseDto
@@ -297,5 +302,7 @@ namespace Ecommerce.API.Services
                     }).ToList()
             };
         }
+
+        
     }
 }

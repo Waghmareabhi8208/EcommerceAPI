@@ -1,5 +1,31 @@
 [
   {
+    "ContainingType": "Ecommerce.API.Controllers.AddressController",
+    "Method": "AddAddress",
+    "RelativePath": "api/Address",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Ecommerce.API.DTOs.Address.CreateAddressDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.AddressController",
+    "Method": "GetAddresses",
+    "RelativePath": "api/Address",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Ecommerce.API.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
@@ -116,7 +142,13 @@
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "addressId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
