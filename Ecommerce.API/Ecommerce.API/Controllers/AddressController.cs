@@ -96,5 +96,50 @@ namespace Ecommerce.API.Controllers
 
             return Ok("Address updated");
         }
+
+        // API Endpoint to Delete Address
+        [HttpDelete("{addressId}")]
+        public async Task<IActionResult> DeleteAddress(int addressId)
+        {
+            int userId = int.Parse(
+                User.FindFirst(
+                    ClaimTypes.NameIdentifier)!
+                    .Value);
+
+            bool deleted =
+                await _addressService.DeleteAddressAsync(
+                    userId,
+                    addressId);
+
+            if (!deleted)
+            {
+                return NotFound();
+            }
+
+            return Ok("Address deleted");
+        }
+
+        // API Endpoint to Set Default Address
+        [HttpPut("{addressId}/default")]
+        public async Task<IActionResult> SetDefaultAddress(int addressId)
+        {
+            int userId = int.Parse(
+                User.FindFirst(
+                    ClaimTypes.NameIdentifier)!
+                    .Value);
+
+            bool updated =
+                await _addressService
+                    .SetDefaultAddressAsync(
+                        userId,
+                        addressId);
+
+            if (!updated)
+            {
+                return NotFound();
+            }
+
+            return Ok("Default address updated");
+        }
     }
 }

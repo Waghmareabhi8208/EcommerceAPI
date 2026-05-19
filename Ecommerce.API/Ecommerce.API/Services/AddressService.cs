@@ -15,8 +15,8 @@ namespace Ecommerce.API.Services
         }
         public async Task AddAddressAsync(int userId, CreateAddressDto dto)
         {
-           if(dto.IsDefault)
-           {
+            if(dto.IsDefault)
+            {
                 var existingDefaults =
                     await _context.Addresses
                     .Where(x => x.UserId == userId && x.IsDefault)
@@ -26,7 +26,7 @@ namespace Ecommerce.API.Services
                 {
                     existingAddress.IsDefault = false;
                 }
-           }
+            }
 
             var address = new Address
             {
@@ -49,14 +49,14 @@ namespace Ecommerce.API.Services
                 IsDefault = dto.IsDefault
             };
             _context.Addresses.Add(address);
-            await _context.SaveChangesAsync(); 
+            await _context.SaveChangesAsync();
         }
         public async Task<AddressResponseDto?> GetAddressByIdAsync(int userId, int addressId)
         {
-           var address = await _context.Addresses
-                .FirstOrDefaultAsync(x => x.Id == addressId && x.UserId == userId);
+            var address = await _context.Addresses
+                 .FirstOrDefaultAsync(x => x.Id == addressId && x.UserId == userId);
 
-            if(address == null)
+            if (address == null)
                 return null;
 
             return new AddressResponseDto
@@ -84,7 +84,7 @@ namespace Ecommerce.API.Services
         public async Task<List<AddressResponseDto>> GetAddressesAsync(int userId)
         {
             var addresses = await _context.Addresses
-                .Where(x =>x.UserId == userId)
+                .Where(x => x.UserId == userId)
                 .ToListAsync();
 
             return addresses.Select(address =>
@@ -111,9 +111,26 @@ namespace Ecommerce.API.Services
                 }).ToList();
         }
 
-        public Task<bool> SetDefaultAddressAsync(int userId, int addressId)
+        public async Task<bool> SetDefaultAddressAsync(int userId, int addressId)
         {
-            throw new NotImplementedException();
+            var address = await _context.Addresses
+                .FirstOrDefaultAsync(x => x.Id == addressId && x.UserId == userId);
+
+            if(address == null)
+                return false;
+
+            var existingDefaults = await _context.Addresses
+                .Where(x => x.UserId == userId && x.IsDefault)
+                .ToListAsync();
+
+            foreach (var item in existingDefaults)
+            {
+                item.IsDefault = false;
+            }
+
+            address.IsDefault = true;
+            await _context.SaveChangesAsync();
+            return true;
         }
 
         public async Task<bool> UpdateAddressAsync(int userId, int addressId, UpdateAddressDto dto)
@@ -121,7 +138,7 @@ namespace Ecommerce.API.Services
             var address = await _context.Addresses
                 .FirstOrDefaultAsync(x => x.Id == addressId && x.UserId == userId);
 
-            if(address == null)
+            if (address == null)
                 return false;
 
             // Handle default logic
@@ -160,9 +177,19 @@ namespace Ecommerce.API.Services
 
             return true;
         }
-        public Task<bool> DeleteAddressAsync(int userId, int addressId)
+        public async Task<bool> DeleteAddressAsync(int userId, int addressId)
         {
-            throw new NotImplementedException();
+            var address = await _context.Addresses
+                .FirstOrDefaultAsync(x => x.Id == addressId && x.UserId == userId);
+
+            if (address == null)
+            {
+                return false;
+            }
+
+            _context.Addresses .Remove(address);
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
 }

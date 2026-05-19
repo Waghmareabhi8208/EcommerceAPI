@@ -63,6 +63,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Ecommerce.API.Controllers.AddressController",
+    "Method": "DeleteAddress",
+    "RelativePath": "api/Address/{addressId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addressId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.AddressController",
+    "Method": "SetDefaultAddress",
+    "RelativePath": "api/Address/{addressId}/default",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addressId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Ecommerce.API.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
