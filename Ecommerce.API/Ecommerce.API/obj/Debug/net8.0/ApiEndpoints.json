@@ -310,6 +310,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Ecommerce.API.Controllers.PaymentController",
+    "Method": "CreatePaymentOrder",
+    "RelativePath": "api/Payment/Create-order",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Ecommerce.API.DTOs.Payment.CreatePaymentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Ecommerce.API.Controllers.ProductController",
     "Method": "GetProducts",
     "RelativePath": "api/Product",

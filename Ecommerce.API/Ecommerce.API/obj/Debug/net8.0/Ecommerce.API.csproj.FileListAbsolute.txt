@@ -143,3 +143,6 @@ D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\obj\Debug\net8.0\
 D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\obj\Debug\net8.0\Ecommerce.API.pdb
 D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\obj\Debug\net8.0\Ecommerce.API.genruntimeconfig.cache
 D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\obj\Debug\net8.0\ref\Ecommerce.API.dll
+D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\BouncyCastle.Crypto.dll
+D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\Razorpay.dll
