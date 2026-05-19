@@ -223,7 +223,7 @@
         }
       }
     },
-    "/api/Order": {
+    "/api/Order/place-order": {
       "post": {
         "tags": [
           "Order"
@@ -243,7 +243,9 @@
             "description": "OK"
           }
         }
-      },
+      }
+    },
+    "/api/Order": {
       "get": {
         "tags": [
           "Order"

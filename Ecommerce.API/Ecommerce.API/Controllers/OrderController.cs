@@ -19,26 +19,30 @@ namespace Ecommerce.API.Controllers
         }
 
         // Place Order Using Address
-        [HttpPost]
+        [HttpPost("place-order")]
         public async Task<IActionResult> PlaceOrder(int addressId)
         {
-            int userId = int.Parse(
-                User.FindFirst(
-                    ClaimTypes.NameIdentifier)!
-                    .Value);
-
-            var order =
-                await _orderService.PlaceOrderAsync(
-                    userId,
-                    addressId);
-
-            if (order == null)
+            try
             {
-                return BadRequest(
-                    "Cart is empty or invalid address");
-            }
+                int userId = int.Parse(
+                    User.FindFirst(ClaimTypes.NameIdentifier)!
+                        .Value);
 
-            return Ok(order);
+                var order = await _orderService
+                    .PlaceOrderAsync(userId, addressId);
+
+                if (order == null)
+                {
+                    return BadRequest(
+                        "Cart is empty or address is invalid");
+                }
+
+                return Ok(order);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // Get All Orders Of Logged-In User

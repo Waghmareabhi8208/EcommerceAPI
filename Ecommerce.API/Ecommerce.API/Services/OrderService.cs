@@ -64,7 +64,8 @@ namespace Ecommerce.API.Services
                 // Stock Validation
                 if (item.Quantity > item.Product.Stock)
                 {
-                    return null;
+                    throw new Exception(
+                        $"Only {item.Product.Stock} items available for {item.Product.Name}");
                 }
 
                 // Add order item

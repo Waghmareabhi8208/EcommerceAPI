@@ -137,22 +137,6 @@
   },
   {
     "ContainingType": "Ecommerce.API.Controllers.OrderController",
-    "Method": "PlaceOrder",
-    "RelativePath": "api/Order",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "addressId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Ecommerce.API.Controllers.OrderController",
     "Method": "GetOrders",
     "RelativePath": "api/Order",
     "HttpMethod": "GET",
@@ -238,6 +222,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.OrderController",
+    "Method": "PlaceOrder",
+    "RelativePath": "api/Order/place-order",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addressId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
