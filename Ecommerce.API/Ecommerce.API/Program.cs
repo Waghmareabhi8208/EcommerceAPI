@@ -103,6 +103,9 @@ builder.Services.AddScoped<IOrderService, OrderService>();
 // Register AddressService in Program.cs
 builder.Services.AddScoped<IAddressService, AddressService>();
 
+// Register PaymentService in Program.cs
+builder.Services.AddScoped<IPaymentService,PaymentService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
