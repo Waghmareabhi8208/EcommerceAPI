@@ -26,6 +26,43 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Ecommerce.API.Controllers.AddressController",
+    "Method": "GetAddressById",
+    "RelativePath": "api/Address/{addressId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addressId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.AddressController",
+    "Method": "UpdateAddress",
+    "RelativePath": "api/Address/{addressId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addressId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Ecommerce.API.DTOs.Address.UpdateAddressDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Ecommerce.API.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",

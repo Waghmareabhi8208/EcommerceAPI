@@ -51,5 +51,50 @@ namespace Ecommerce.API.Controllers
 
             return Ok(addresses);
         }
+
+        // Endpoint to get single address
+        [HttpGet("{addressId}")]
+        public async Task<IActionResult> GetAddressById(int addressId)
+        {
+            int userId = int.Parse(
+                User.FindFirst(
+                    ClaimTypes.NameIdentifier)!
+                    .Value);
+
+            var address =
+                await _addressService.GetAddressByIdAsync(
+                    userId,
+                    addressId);
+
+            if (address == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(address);
+        }
+
+        // Api endpoint to update address
+        [HttpPut("{addressId}")]
+        public async Task<IActionResult> UpdateAddress(int addressId,UpdateAddressDto dto)
+        {
+            int userId = int.Parse(
+                User.FindFirst(
+                    ClaimTypes.NameIdentifier)!
+                    .Value);
+
+            bool updated =
+                await _addressService.UpdateAddressAsync(
+                    userId,
+                    addressId,
+                    dto);
+
+            if (!updated)
+            {
+                return NotFound();
+            }
+
+            return Ok("Address updated");
+        }
     }
 }

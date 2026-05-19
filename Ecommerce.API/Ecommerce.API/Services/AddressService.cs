@@ -51,6 +51,35 @@ namespace Ecommerce.API.Services
             _context.Addresses.Add(address);
             await _context.SaveChangesAsync(); 
         }
+        public async Task<AddressResponseDto?> GetAddressByIdAsync(int userId, int addressId)
+        {
+           var address = await _context.Addresses
+                .FirstOrDefaultAsync(x => x.Id == addressId && x.UserId == userId);
+
+            if(address == null)
+                return null;
+
+            return new AddressResponseDto
+            {
+                Id = address.Id,
+
+                FullName = address.FullName,
+
+                PhoneNumber = address.PhoneNumber,
+
+                Street = address.Street,
+
+                City = address.City,
+
+                State = address.State,
+
+                PostalCode = address.PostalCode,
+
+                Country = address.Country,
+
+                IsDefault = address.IsDefault
+            };
+        }
 
         public async Task<List<AddressResponseDto>> GetAddressesAsync(int userId)
         {
@@ -80,6 +109,60 @@ namespace Ecommerce.API.Services
                     IsDefault = address.IsDefault
 
                 }).ToList();
+        }
+
+        public Task<bool> SetDefaultAddressAsync(int userId, int addressId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> UpdateAddressAsync(int userId, int addressId, UpdateAddressDto dto)
+        {
+            var address = await _context.Addresses
+                .FirstOrDefaultAsync(x => x.Id == addressId && x.UserId == userId);
+
+            if(address == null)
+                return false;
+
+            // Handle default logic
+            if (dto.IsDefault)
+            {
+                var existingDefaults =
+                    await _context.Addresses
+                        .Where(x =>
+                            x.UserId == userId &&
+                            x.IsDefault)
+                        .ToListAsync();
+
+                foreach (var item in existingDefaults)
+                {
+                    item.IsDefault = false;
+                }
+            }
+
+            address.FullName = dto.FullName;
+
+            address.PhoneNumber = dto.PhoneNumber;
+
+            address.Street = dto.Street;
+
+            address.City = dto.City;
+
+            address.State = dto.State;
+
+            address.PostalCode = dto.PostalCode;
+
+            address.Country = dto.Country;
+
+            address.IsDefault = dto.IsDefault;
+
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+        public Task<bool> DeleteAddressAsync(int userId, int addressId)
+        {
+            throw new NotImplementedException();
         }
     }
 }
