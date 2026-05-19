@@ -16,5 +16,8 @@
         public string ShippingState { get; set; } = string.Empty;
         public string ShippingPostalCode { get; set; } = string.Empty;
         public string ShippingCountry { get; set; } = string.Empty;
+        public string PaymentStatus { get; set; } = "Pending";
+        public string? RazorpayOrderId { get; set; }
+        public string? RazorpayPaymentId { get; set; }
     }
 }
