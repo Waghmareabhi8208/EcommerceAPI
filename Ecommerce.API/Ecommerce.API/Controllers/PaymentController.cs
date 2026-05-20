@@ -15,7 +15,7 @@ namespace Ecommerce.API.Controllers
 
         public PaymentController(IPaymentService paymentService)
         {
-            paymentService = _paymentService;
+            _paymentService = paymentService;
         }
 
         [HttpPost("Create-order")]
