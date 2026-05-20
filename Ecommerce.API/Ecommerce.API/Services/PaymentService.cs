@@ -4,6 +4,8 @@ using Ecommerce.API.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Razorpay.Api;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Ecommerce.API.Services
 {
@@ -63,6 +65,51 @@ namespace Ecommerce.API.Services
 
                 Key = key
             };
+        }
+
+        // To verify payment is properly done or not because we should not trust frontend
+        // it can easily manipulated.
+        public async Task<bool> VerifyPaymentAsync(int userId, VerifyPaymentDto dto)
+        {
+            var order = await _context.Orders
+                .FirstOrDefaultAsync(x => x.Id == dto.OrderId
+                && x.UserId == userId);
+
+            if (order == null)
+            {
+                return false;
+            }
+
+            string secret = _configuration["Razorpay:Secret"]!;
+
+            // Generate expected signature
+            string payload = dto.RazorpayOrderId + "|" + dto.RazorpayPaymentId;
+
+            using var hmac = new HMACSHA256(Encoding.UTF8.GetBytes(secret));
+
+            byte[] hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(payload));
+
+            string generatedSignature =
+                BitConverter
+                .ToString(hash)
+                .Replace("-","")
+                .ToLower();
+
+            // Compare Signature
+            bool isValid = generatedSignature == dto.RazorpaySignature;
+
+            if(!isValid)
+            {
+                return false;
+            }
+
+            // Mark payment success 
+            order.PaymentStatus = "Paid";
+
+            order.RazorpayPaymentId = dto.RazorpayPaymentId;
+
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
 }

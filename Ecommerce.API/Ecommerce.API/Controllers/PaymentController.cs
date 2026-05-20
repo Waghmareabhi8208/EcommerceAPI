@@ -18,6 +18,7 @@ namespace Ecommerce.API.Controllers
             _paymentService = paymentService;
         }
 
+        // Api endpoint to make or create payments
         [HttpPost("Create-order")]
         public async Task<IActionResult> CreatePaymentOrder(CreatePaymentDto dto)
         {
@@ -35,6 +36,24 @@ namespace Ecommerce.API.Controllers
             }
 
             return Ok(response);
+        }
+
+        // Api endpoint to verify payments 
+        [HttpPost("Verify")]
+        public async Task<IActionResult> VerifyPayment(VerifyPaymentDto dto)
+        {
+            int userId = int.Parse(
+                User.FindFirst(ClaimTypes.NameIdentifier)!
+                .Value);
+
+            bool verified = await _paymentService.VerifyPaymentAsync(userId, dto);
+
+            if (!verified)
+            {
+                return BadRequest("Payment verification failed!");
+            }
+
+            return Ok("Payment verified successfully");
         }
     }
 }
