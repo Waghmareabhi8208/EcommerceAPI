@@ -7,6 +7,7 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using StackExchange.Redis;
 using System.Reflection;
 using System.Text;
 
@@ -105,6 +106,11 @@ builder.Services.AddScoped<IAddressService, AddressService>();
 
 // Register PaymentService in Program.cs
 builder.Services.AddScoped<IPaymentService,PaymentService>();
+
+// Register Redis in Program.cs
+builder.Services.AddSingleton<IConnectionMultiplexer>(
+    ConnectionMultiplexer.Connect(
+        builder.Configuration["Redis:ConnectionString"]!));
 
 var app = builder.Build();
 
