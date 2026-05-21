@@ -62,5 +62,20 @@ namespace Ecommerce.API.Controllers
                 Role = role
             });
         }
+
+        // Api Endpoint to add refresh token
+        [HttpPost("refresh")]
+        public async Task<IActionResult> RefreshToken(RefreshTokenRequestDto dto)
+        {
+            var response = await _authService.RefreshTokenAsync(dto.RefreshToken);
+
+            if(response == null)
+            {
+                return Unauthorized("Invalid refresh token");
+            }
+
+            return Ok(response);
+        }
+
     }
 }
