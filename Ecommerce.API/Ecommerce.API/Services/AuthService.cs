@@ -4,6 +4,7 @@ using Ecommerce.API.Entities;
 using Ecommerce.API.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using StackExchange.Redis;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -14,11 +15,16 @@ namespace Ecommerce.API.Services
     {
         private readonly AppDbContext _context;
         private readonly IConfiguration _configuration;
+        private readonly IConnectionMultiplexer _redis;
 
-        public AuthService(AppDbContext context,IConfiguration configuration)
+        public AuthService(
+            AppDbContext context,
+            IConfiguration configuration,
+            IConnectionMultiplexer redis)
         {
             _context = context;
             _configuration = configuration;
+            _redis = redis;
         }
 
         public async Task<AuthResponseDto> RegisterAsync(RegisterDto dto)
@@ -47,12 +53,25 @@ namespace Ecommerce.API.Services
 
             await _context.SaveChangesAsync();
 
-            // Generate JWT Token
-            string token = GenerateJwtToken(user);
+            // Generate JWT access Token
+            string accesstoken = GenerateJwtToken(user);
+
+            // Generate refresh Token
+            string refreshToken = GenerateRefreshToken();
+
+            // Redis database
+            var db = _redis.GetDatabase();
+
+            // Store refresh token in Redis
+            await db.StringSetAsync(
+                $"refresh:{refreshToken}",
+                user.Id,
+                TimeSpan.FromDays(7));
 
             return new AuthResponseDto
             {
-                Token = token
+                AccessToken = accesstoken,
+                RefreshToken = refreshToken
             };
         }
 
@@ -75,12 +94,25 @@ namespace Ecommerce.API.Services
                 return null;
             }
 
-            // Generate token
-            string token = GenerateJwtToken(user);  
+            // Generate JWT access token
+            string accessToken = GenerateJwtToken(user);
+
+            // Generate refresh token
+            string refreshToken = GenerateRefreshToken();
+
+            // redis database
+            var db = _redis.GetDatabase();
+
+            // Store refresh token in redis
+            await db.StringSetAsync(
+                $"refresh:{refreshToken}",
+                user.Id,
+                TimeSpan.FromDays(7));
 
             return new AuthResponseDto
             {
-                Token = token
+                AccessToken = accessToken,
+                RefreshToken = refreshToken
             };
         }
         
@@ -112,5 +144,15 @@ namespace Ecommerce.API.Services
                 .WriteToken(token);
         }
 
+        // Method to generate RefreshToken
+        private string GenerateRefreshToken()
+        {
+            return Guid.NewGuid().ToString();
+        }
+
+        public Task<AuthResponseDto?> RefreshTokenAsync(string refreshToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
