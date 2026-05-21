@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using StackExchange.Redis;
 using System.IdentityModel.Tokens.Jwt;
+using System.Runtime.InteropServices;
 using System.Security.Claims;
 using System.Text;
 
@@ -150,9 +151,39 @@ namespace Ecommerce.API.Services
             return Guid.NewGuid().ToString();
         }
 
-        public Task<AuthResponseDto?> RefreshTokenAsync(string refreshToken)
+        public async Task<AuthResponseDto?> RefreshTokenAsync(string refreshToken)
         {
-            throw new NotImplementedException();
+           var db = _redis.GetDatabase();
+
+            // Check token in redis
+            var userIdValue = await db.StringGetAsync(
+                $"refresh:{refreshToken}");
+
+            if(userIdValue.IsNullOrEmpty)
+            {
+                return null;
+            }
+
+            int userId = int.Parse(userIdValue!);
+
+            // Get user from database
+            var user = await _context.Users
+                .FirstOrDefaultAsync(x => x.Id == userId);
+
+            if (user == null) 
+            {
+                return null;
+            }
+
+            // Generate new access Token
+            string newAccessToken = GenerateJwtToken(user);
+
+            return new AuthResponseDto
+            {
+                AccessToken = newAccessToken,
+
+                RefreshToken = refreshToken
+            };
         }
     }
 }
