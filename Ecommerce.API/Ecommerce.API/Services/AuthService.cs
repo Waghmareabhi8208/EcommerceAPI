@@ -185,5 +185,15 @@ namespace Ecommerce.API.Services
                 RefreshToken = refreshToken
             };
         }
+
+        public async Task<bool> LogoutAsync(string refreshToken)
+        {
+            var db = _redis.GetDatabase();
+            
+            bool deleted = await db.KeyDeleteAsync(
+                $"refresh:{refreshToken}");
+
+            return deleted;
+        }
     }
 }
