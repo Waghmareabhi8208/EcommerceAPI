@@ -77,5 +77,26 @@ namespace Ecommerce.API.Controllers
             return Ok(response);
         }
 
+        //Api endpoint for Logout 
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout(RefreshTokenRequestDto dto)
+        {
+            bool loggedOut = await _authService.LogoutAsync(dto.RefreshToken);
+
+            if(!loggedOut)
+            {
+                return Unauthorized(new
+                {
+                    message = "Refresh token is invalid or expired"
+                });
+            }
+
+            return Ok(new
+            {
+                message = "User logged out successfully"
+            });
+        }
+
+
     }
 }
