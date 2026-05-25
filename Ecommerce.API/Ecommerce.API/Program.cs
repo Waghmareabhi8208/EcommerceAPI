@@ -1,5 +1,6 @@
 using Ecommerce.API.Data;
 using Ecommerce.API.Interfaces;
+using Ecommerce.API.Middleware;
 using Ecommerce.API.Repositories;
 using Ecommerce.API.Services;
 using FluentValidation;
@@ -120,6 +121,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Middleware added for global exception handling
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 
