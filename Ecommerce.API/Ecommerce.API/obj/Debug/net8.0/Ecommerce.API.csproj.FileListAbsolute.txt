@@ -149,3 +149,12 @@ D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\obj\Debug\net8.0\
 D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
 D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\StackExchange.Redis.dll
 D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\System.IO.Hashing.dll
+D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\Serilog.dll
+D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\Serilog.AspNetCore.dll
+D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\Serilog.Sinks.File.dll

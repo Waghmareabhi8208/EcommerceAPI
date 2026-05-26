@@ -1,0 +1,14 @@
+2026-05-26 18:25:48.158 +05:30 [INF] User profile is available. Using 'C:\Users\waghm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-26 18:25:48.431 +05:30 [INF] Now listening on: https://localhost:7248
+2026-05-26 18:25:48.433 +05:30 [INF] Now listening on: http://localhost:5122
+2026-05-26 18:25:48.471 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-26 18:25:48.473 +05:30 [INF] Hosting environment: Development
+2026-05-26 18:25:48.474 +05:30 [INF] Content root path: D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API
+2026-05-26 18:25:49.203 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/index.html - null null
+2026-05-26 18:25:49.421 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - null null
+2026-05-26 18:25:49.422 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-26 18:25:49.423 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/index.html - 200 null text/html;charset=utf-8 226.0473ms
+2026-05-26 18:25:49.446 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 24.3724ms
+2026-05-26 18:25:49.559 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - 200 null text/javascript; charset=UTF-8 137.8593ms
+2026-05-26 18:25:49.589 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - null null
+2026-05-26 18:25:49.614 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.1619ms
