@@ -9,10 +9,11 @@ namespace Ecommerce.API.Services
     public class OrderService : IOrderService
     {
         private readonly AppDbContext _context;
-
-        public OrderService(AppDbContext context)
+        private readonly ILogger<OrderService> _logger;
+        public OrderService(AppDbContext context, ILogger<OrderService> logger)
         {
             _context = context;
+            _logger = logger;
         }
         public async Task<OrderResponseDto?> PlaceOrderAsync(int userId,int addressId)
         {
@@ -23,6 +24,10 @@ namespace Ecommerce.API.Services
 
             if (cart == null || !cart.CartItems.Any())
             {
+                _logger.LogWarning(
+                   "Order placement failed. Cart is empty for UserId: {UserId}",
+                   userId);
+
                 return null;
             }
 
@@ -35,6 +40,11 @@ namespace Ecommerce.API.Services
             // Validate address ownership
             if (address == null)
             {
+                _logger.LogWarning(
+                       "Order placement failed. Invalid address selected. UserId: {UserId}, AddressId: {AddressId}",
+                       userId,
+                       addressId);
+
                 return null;
             }
 
@@ -64,6 +74,13 @@ namespace Ecommerce.API.Services
                 // Stock Validation
                 if (item.Quantity > item.Product.Stock)
                 {
+                    _logger.LogWarning(
+                        "Order placement failed due to insufficient stock. ProductId: {ProductId}, ProductName: {ProductName}, AvailableStock: {Stock}, RequestedQuantity: {Quantity}",
+                        item.Product.Id,
+                        item.Product.Name,
+                        item.Product.Stock,
+                        item.Quantity);
+
                     throw new Exception(
                         $"Only {item.Product.Stock} items available for {item.Product.Name}");
                 }
@@ -92,6 +109,12 @@ namespace Ecommerce.API.Services
             _context.CartItems.RemoveRange(cart.CartItems);
 
             await _context.SaveChangesAsync();
+
+            _logger.LogInformation(
+                   "Order placed successfully. OrderId: {OrderId}, UserId: {UserId}, TotalAmount: {TotalAmount}",
+                   order.Id,
+                   userId,
+                   order.TotalAmount);
 
             return new OrderResponseDto
             {
@@ -124,6 +147,11 @@ namespace Ecommerce.API.Services
                 .ThenInclude(x => x.Product)
                 .Where(x => x.UserId == userId)
                 .ToListAsync();
+
+            _logger.LogInformation(
+               "Customer orders retrieved successfully. UserId: {UserId}, TotalOrders: {TotalOrders}",
+               userId,
+               orders.Count);
 
             return orders.Select(order =>
                new OrderResponseDto
@@ -163,11 +191,28 @@ namespace Ecommerce.API.Services
                 .FirstOrDefaultAsync(x => x.Id == orderId && x.UserId == userId);
 
             if (order == null)
+            {
+                _logger.LogWarning(
+                    "Order cancellation failed. Order not found. OrderId: {OrderId}, UserId: {UserId}",
+                    orderId,
+                    userId);
+
                 return false;
+            }
+                
 
             // Prevent invalid Cancellation
             if(order.Status == "Delivered" ||  order.Status == "Cancelled")
+            {
+                _logger.LogWarning(
+                      "Order cancellation failed. Invalid order status. OrderId: {OrderId}, CurrentStatus: {Status}",
+                      order.Id,
+                      order.Status);
+
                 return false;
+
+            }
+            
 
             // Restore Stock
             foreach(var item in order.OrderItems)
@@ -178,6 +223,12 @@ namespace Ecommerce.API.Services
             order.Status = "Cancelled";
 
             await _context.SaveChangesAsync();
+
+            _logger.LogInformation(
+                   "Order cancelled successfully. OrderId: {OrderId}, UserId: {UserId}",
+                   order.Id,
+                   userId);
+            
             return true;
         }
 
@@ -186,12 +237,36 @@ namespace Ecommerce.API.Services
             var order = await _context.Orders
                 .FirstOrDefaultAsync(x => x.Id == orderId);
 
-            if (order == null) 
-                return false;
+            if (order == null)
+            {
+                _logger.LogWarning(
+                   "Order status update failed. Order not found. OrderId: {OrderId}",
+                   orderId);
 
+                return false;
+            }
+            
+
+            if(order.Status == status)
+            {
+                _logger.LogWarning(
+                       "Order status update skipped. Order already has status: {Status}. OrderId: {OrderId}",
+                       status,
+                       orderId);
+
+                return false;
+            }
+
+            // Update status
             order.Status = status;
 
             await _context.SaveChangesAsync();
+
+            _logger.LogInformation(
+                   "Order status updated successfully. OrderId: {OrderId}, NewStatus: {Status}",
+                   order.Id,
+                   status);
+
             return true;
         }
 
@@ -202,8 +277,20 @@ namespace Ecommerce.API.Services
                 .ThenInclude(x => x.Product)
                 .FirstOrDefaultAsync (x => x.Id == orderId && x.UserId == userId);
 
-            if (order == null) 
+            if (order == null)
+            {
+                _logger.LogWarning(
+                    "Order retrieval failed. Order not found. OrderId: {OrderId}, UserId: {UserId}",
+                    orderId,
+                    userId);
+
                 return null;
+            }
+
+            _logger.LogInformation(
+                "Order retrieved successfully. OrderId: {OrderId}, UserId: {UserId}",
+                order.Id,
+                userId);
 
             return new OrderResponseDto
             {
@@ -234,6 +321,10 @@ namespace Ecommerce.API.Services
                 .Include(x => x.OrderItems)
                 .ThenInclude(x => x.Product)
                 .ToListAsync();
+
+            _logger.LogInformation(
+                 "All orders retrieved successfully. TotalOrders: {TotalOrders}",
+                 orders.Count);
 
             return orders.Select(order =>new OrderResponseDto
            {
@@ -273,7 +364,18 @@ namespace Ecommerce.API.Services
                 .FirstOrDefaultAsync(x => x.Id == orderId);
 
             if (order == null)
+            {
+                _logger.LogWarning(
+                   "Admin order retrieval failed. Order not found. OrderId: {OrderId}",
+                   orderId);
+
                 return null;
+            }
+
+            _logger.LogInformation(
+               "Admin retrieved order successfully. OrderId: {OrderId}, CustomerId: {UserId}",
+               order.Id,
+               order.UserId);
 
             return new OrderResponseDto
             {
