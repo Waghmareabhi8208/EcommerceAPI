@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using Serilog;
+using System.Net;
 using System.Text.Json;
 
 namespace Ecommerce.API.Middleware
@@ -6,7 +7,7 @@ namespace Ecommerce.API.Middleware
     public class GlobalExceptionMiddleware
     {
         private readonly RequestDelegate _next;
-
+       
         public GlobalExceptionMiddleware(RequestDelegate next)
         {
              _next = next;
@@ -20,6 +21,10 @@ namespace Ecommerce.API.Middleware
             }
             catch (Exception ex)
             {
+                Log.Error(
+                      ex,
+                      "Unhandled exception occurred");
+
                 context.Response.ContentType = "application/json";
 
                 context.Response.StatusCode = (int)HttpStatusCode
