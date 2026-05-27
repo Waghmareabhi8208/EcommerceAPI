@@ -17,15 +17,18 @@ namespace Ecommerce.API.Services
         private readonly AppDbContext _context;
         private readonly IConfiguration _configuration;
         private readonly IConnectionMultiplexer _redis;
+        private readonly ILogger<AuthService> _logger;
 
         public AuthService(
             AppDbContext context,
             IConfiguration configuration,
-            IConnectionMultiplexer redis)
+            IConnectionMultiplexer redis,
+            ILogger<AuthService> logger)
         {
             _context = context;
             _configuration = configuration;
             _redis = redis;
+            _logger = logger;
         }
 
         public async Task<AuthResponseDto> RegisterAsync(RegisterDto dto)
@@ -35,6 +38,10 @@ namespace Ecommerce.API.Services
 
             if (existingUSer != null) 
             {
+                _logger.LogWarning(
+                    "Registration failed. Email already exists: {Email}",
+                    dto.Email);
+
                 return null;
             }
 
@@ -69,6 +76,10 @@ namespace Ecommerce.API.Services
                 user.Id,
                 TimeSpan.FromDays(7));
 
+            _logger.LogInformation(
+               "User registered successfully. UserId: {UserId}, Email : {Email}",
+               user.Id, user.Email);
+
             return new AuthResponseDto
             {
                 AccessToken = accesstoken,
@@ -84,6 +95,10 @@ namespace Ecommerce.API.Services
 
             if (user == null)
             {
+                _logger.LogWarning(
+                   "Login failed. User not found for Email: {Email}",
+                   dto.Email);
+
                 return null;
             }
 
@@ -92,6 +107,10 @@ namespace Ecommerce.API.Services
 
             if (!isPasswordValid)
             {
+                _logger.LogWarning(
+                    "Invalid login attempt for email: {Email}",
+                    dto.Email);
+
                 return null;
             }
 
@@ -109,6 +128,11 @@ namespace Ecommerce.API.Services
                 $"refresh:{refreshToken}",
                 user.Id,
                 TimeSpan.FromDays(7));
+
+            _logger.LogInformation(
+                "User logged in successfully. UserId: {UserId}, Email: {Email}",
+                user.Id,
+                user.Email);
 
             return new AuthResponseDto
             {
@@ -161,6 +185,9 @@ namespace Ecommerce.API.Services
 
             if(userIdValue.IsNullOrEmpty)
             {
+                _logger.LogWarning(
+                    "Invalid or expired refresh token used.");
+
                 return null;
             }
 
@@ -172,11 +199,19 @@ namespace Ecommerce.API.Services
 
             if (user == null) 
             {
+                _logger.LogWarning(
+                   "Refresh token belongs to non-existing user. UserId: {UserId}",
+                   userId);
+
                 return null;
             }
 
             // Generate new access Token
             string newAccessToken = GenerateJwtToken(user);
+
+            _logger.LogInformation(
+                "Access token refreshed successfully for UserId: {UserId}",
+                user.Id);
 
             return new AuthResponseDto
             {
@@ -192,6 +227,17 @@ namespace Ecommerce.API.Services
             
             bool deleted = await db.KeyDeleteAsync(
                 $"refresh:{refreshToken}");
+
+            if (deleted)
+            {
+                _logger.LogInformation(
+                    "User logged out successfully. Refresh token removed.");
+            }
+            else
+            {
+                _logger.LogWarning(
+                    "Logout failed. Invalid or expired refresh token.");
+            }
 
             return deleted;
         }
