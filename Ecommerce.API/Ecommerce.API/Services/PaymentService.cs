@@ -13,19 +13,39 @@ namespace Ecommerce.API.Services
     {
         private readonly AppDbContext _context;
         private readonly IConfiguration _configuration;
-
-        public PaymentService(AppDbContext context,IConfiguration configuration)
+        private readonly ILogger<PaymentService> _logger;
+        public PaymentService(
+            AppDbContext context,
+            IConfiguration configuration,
+            ILogger<PaymentService> logger)
         {
             _context = context;
             _configuration = configuration;
+            _logger = logger;
         }
         public async Task<PaymentOrderResponseDto?> CreatePaymentOrderAsync(int userId, int orderId)
         {
             var order = await _context.Orders
                 .FirstOrDefaultAsync(x => x.Id == orderId && x.UserId == userId);
 
+            // Check order exists
             if (order == null)
             {
+                _logger.LogWarning(
+                    "Payment order creation failed. Order not found. OrderId: {OrderId}, UserId: {UserId}",
+                    orderId,
+                    userId);
+
+                return null;
+            }
+
+            // Prevent duplicate payment
+            if (order.PaymentStatus == "Paid")
+            {
+                _logger.LogWarning(
+                    "Payment order creation failed. Order already paid. OrderId: {OrderId}",
+                    order.Id);
+
                 return null;
             }
 
@@ -55,6 +75,13 @@ namespace Ecommerce.API.Services
 
             await _context.SaveChangesAsync();
 
+            _logger.LogInformation(
+               "Payment order created successfully. OrderId: {OrderId}, RazorpayOrderId: {RazorpayOrderId}, Amount: {Amount}",
+               order.Id,
+               razorpayOrderId,
+               order.TotalAmount);
+
+
             return new PaymentOrderResponseDto
             {
                 RazorpayOrderId = razorpayOrderId,
@@ -75,8 +102,24 @@ namespace Ecommerce.API.Services
                 .FirstOrDefaultAsync(x => x.Id == dto.OrderId
                 && x.UserId == userId);
 
+            // Check order exists
             if (order == null)
             {
+                _logger.LogWarning(
+                    "Payment verification failed. Order not found. OrderId: {OrderId}, UserId: {UserId}",
+                    dto.OrderId,
+                    userId);
+
+                return false;
+            }
+
+            // Prevent duplicate verification
+            if (order.PaymentStatus == "Paid")
+            {
+                _logger.LogWarning(
+                    "Payment verification skipped. Order already paid. OrderId: {OrderId}",
+                    order.Id);
+
                 return false;
             }
 
@@ -98,8 +141,12 @@ namespace Ecommerce.API.Services
             // Compare Signature
             bool isValid = generatedSignature == dto.RazorpaySignature;
 
-            if(!isValid)
+            if (!isValid)
             {
+                _logger.LogWarning(
+                    "Payment verification failed due to invalid signature. OrderId: {OrderId}",
+                    dto.OrderId);
+
                 return false;
             }
 
@@ -109,6 +156,12 @@ namespace Ecommerce.API.Services
             order.RazorpayPaymentId = dto.RazorpayPaymentId;
 
             await _context.SaveChangesAsync();
+            
+            _logger.LogInformation(
+                "Payment verified successfully. OrderId: {OrderId}, PaymentId: {PaymentId}",
+                order.Id,
+                dto.RazorpayPaymentId);
+            
             return true;
         }
     }
