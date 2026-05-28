@@ -17,9 +17,9 @@ namespace Ecommerce.API.Services
 
         public async Task<List<ProductResponseDto>> 
             GetAllAsync(
-                PaginationParams paginationParams)
+                ProductQueryParams queryParams)
         {
-            var products = await _repository.GetAllAsync(paginationParams);
+            var products = await _repository.GetAllAsync(queryParams);
 
             return products.Select(p => new ProductResponseDto
             {

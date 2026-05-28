@@ -5,7 +5,7 @@ namespace Ecommerce.API.Interfaces
 {
     public interface IProductRepository
     {
-        Task<List<Product>> GetAllAsync(PaginationParams paginationParams);
+        Task<List<Product>> GetAllAsync(ProductQueryParams queryParams);
 
         Task<Product> AddAsync(Product product);
 

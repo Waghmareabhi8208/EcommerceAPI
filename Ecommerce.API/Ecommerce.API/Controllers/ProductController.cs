@@ -25,9 +25,9 @@ namespace Ecommerce.API.Controllers
         public async Task<IActionResult> 
             GetProducts(
                 [FromQuery]
-                PaginationParams paginationParams)
+                ProductQueryParams queryParams)
         {
-            var products = await _service.GetAllAsync(paginationParams);
+            var products = await _service.GetAllAsync(queryParams);
 
             return Ok(products);
         }

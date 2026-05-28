@@ -14,14 +14,67 @@ namespace Ecommerce.API.Repositories
         {
             _context = context;
         }
-        public async Task<List<Product>> GetAllAsync(PaginationParams paginationParams)
-        {
-            return await _context.Products
+        public async Task<List<Product>> GetAllAsync(ProductQueryParams queryParams)
+        {   
+            var query = _context.Products.AsQueryable();
+
+            // Search 
+            if(!string.IsNullOrEmpty(
+                    queryParams.Search))
+            {
+                query = query.Where(x =>
+                x.Name.Contains(
+                    queryParams.Search));
+            }
+
+            // Min price
+            if(queryParams.MinPrice.HasValue)
+            {
+                query = query.Where(x => 
+                    x.Price >= 
+                    queryParams.MinPrice.Value);
+            }
+
+            // Max Price
+            if (queryParams.MaxPrice.HasValue)
+            {
+                query = query.Where(x =>
+                    x.Price <=
+                    queryParams.MaxPrice.Value);
+            }
+
+            // In Stock filter
+            if (queryParams.InStock.HasValue)
+            {
+                query = queryParams.InStock.Value
+                    ? query.Where(x => x.Stock > 0)
+
+                    : query.Where(x => x.Stock <= 0);
+            }
+
+            // sorting
+            query = queryParams.SortBy switch
+            {
+                "price_asc" =>
+                    query.OrderBy(x => x.Price),
+
+                "price_desc" =>
+                    query.OrderByDescending(
+                        x => x.Price),
+
+                "name" =>
+                    query.OrderBy(x => x.Name),
+
+                _ =>
+                    query.OrderBy(x => x.Id)
+            };
+
+            return await query
                 .Skip(
-                (paginationParams.PageNumber - 1)
-                * paginationParams.PageSize)
+                (queryParams.PageNumber - 1)
+                * queryParams.PageSize)
                 
-                .Take(paginationParams.PageSize)
+                .Take(queryParams.PageSize)
                 .ToListAsync();
         }
         public async Task<Product> AddAsync(Product product)
