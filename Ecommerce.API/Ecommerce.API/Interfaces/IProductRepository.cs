@@ -1,10 +1,11 @@
-﻿using Ecommerce.API.Entities;
+﻿using Ecommerce.API.DTOs.Common;
+using Ecommerce.API.Entities;
 
 namespace Ecommerce.API.Interfaces
 {
     public interface IProductRepository
     {
-        Task<List<Product>> GetAllAsync();
+        Task<List<Product>> GetAllAsync(PaginationParams paginationParams);
 
         Task<Product> AddAsync(Product product);
 

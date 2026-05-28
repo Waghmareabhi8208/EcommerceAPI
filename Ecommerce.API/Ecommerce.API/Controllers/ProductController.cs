@@ -1,5 +1,6 @@
 ﻿using Ecommerce.API.Data;
 using Ecommerce.API.DTOs;
+using Ecommerce.API.DTOs.Common;
 using Ecommerce.API.Entities;
 using Ecommerce.API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -21,9 +22,12 @@ namespace Ecommerce.API.Controllers
 
         // Gives the list of All products
         [HttpGet]
-        public async Task<IActionResult> GetProducts()
+        public async Task<IActionResult> 
+            GetProducts(
+                [FromQuery]
+                PaginationParams paginationParams)
         {
-            var products = await _service.GetAllAsync();
+            var products = await _service.GetAllAsync(paginationParams);
 
             return Ok(products);
         }

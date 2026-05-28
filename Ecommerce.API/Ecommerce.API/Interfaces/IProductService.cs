@@ -1,10 +1,11 @@
 ﻿using Ecommerce.API.DTOs;
+using Ecommerce.API.DTOs.Common;
 
 namespace Ecommerce.API.Interfaces
 {
     public interface IProductService
     {
-        Task<List<ProductResponseDto>> GetAllAsync();
+        Task<List<ProductResponseDto>> GetAllAsync(PaginationParams paginationParams);
 
         Task<ProductResponseDto> AddAsync(ProductCreateDto dto);
 

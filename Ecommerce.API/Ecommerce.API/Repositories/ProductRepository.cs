@@ -1,4 +1,5 @@
 ﻿using Ecommerce.API.Data;
+using Ecommerce.API.DTOs.Common;
 using Ecommerce.API.Entities;
 using Ecommerce.API.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -13,9 +14,15 @@ namespace Ecommerce.API.Repositories
         {
             _context = context;
         }
-        public async Task<List<Product>> GetAllAsync()
+        public async Task<List<Product>> GetAllAsync(PaginationParams paginationParams)
         {
-            return await _context.Products.ToListAsync();
+            return await _context.Products
+                .Skip(
+                (paginationParams.PageNumber - 1)
+                * paginationParams.PageSize)
+                
+                .Take(paginationParams.PageSize)
+                .ToListAsync();
         }
         public async Task<Product> AddAsync(Product product)
         {

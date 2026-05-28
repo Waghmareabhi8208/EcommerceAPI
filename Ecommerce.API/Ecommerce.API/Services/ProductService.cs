@@ -1,4 +1,5 @@
 ﻿using Ecommerce.API.DTOs;
+using Ecommerce.API.DTOs.Common;
 using Ecommerce.API.Entities;
 using Ecommerce.API.Interfaces;
 using Microsoft.OpenApi.Validations;
@@ -14,9 +15,11 @@ namespace Ecommerce.API.Services
             _repository = repository;
         }
 
-        public async Task<List<ProductResponseDto>> GetAllAsync()
+        public async Task<List<ProductResponseDto>> 
+            GetAllAsync(
+                PaginationParams paginationParams)
         {
-            var products = await _repository.GetAllAsync();
+            var products = await _repository.GetAllAsync(paginationParams);
 
             return products.Select(p => new ProductResponseDto
             {
