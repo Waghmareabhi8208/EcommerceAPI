@@ -126,6 +126,20 @@ namespace Ecommerce.API.Services
                 Directory.CreateDirectory(imagesFolder);
             }
 
+            // Delete old image if exists
+            if (!string.IsNullOrEmpty(product.ImageUrl))
+            {
+                string oldImagePath =
+                    Path.Combine(
+                        _environment.WebRootPath,
+                        product.ImageUrl.TrimStart('/'));
+
+                if (File.Exists(oldImagePath))
+                {
+                    File.Delete(oldImagePath);
+                }
+            }
+
             // Generate unique file name
             string fileName =
                 $"{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
@@ -134,8 +148,8 @@ namespace Ecommerce.API.Services
                 Path.Combine(imagesFolder, fileName);
 
             // Save file
-            using (var stream = 
-                new FileStream(filePath,FileMode.Create))
+            using (var stream =
+                new FileStream(filePath, FileMode.Create))
             {
                 await file.CopyToAsync(stream);
             }
@@ -144,6 +158,7 @@ namespace Ecommerce.API.Services
             product.ImageUrl = $"/images/{fileName}";
 
             await _repository.UpdateAsync(productId, product);
+
             return product.ImageUrl;
         }
     }

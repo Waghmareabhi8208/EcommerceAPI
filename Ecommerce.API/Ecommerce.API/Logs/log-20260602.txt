@@ -205,3 +205,90 @@ WHERE [Id] = @p1;
 2026-06-02 13:53:18.302 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/favicon.ico - null null
 2026-06-02 13:53:18.308 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/favicon.ico - 404 0 null 5.6739ms
 2026-06-02 13:53:18.314 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7248/favicon.ico, Response status code: 404
+2026-06-02 16:16:39.672 +05:30 [INF] User profile is available. Using 'C:\Users\waghm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-02 16:16:39.893 +05:30 [INF] Now listening on: https://localhost:7248
+2026-06-02 16:16:39.894 +05:30 [INF] Now listening on: http://localhost:5122
+2026-06-02 16:16:39.926 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-02 16:16:39.928 +05:30 [INF] Hosting environment: Development
+2026-06-02 16:16:39.928 +05:30 [INF] Content root path: D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API
+2026-06-02 16:16:40.465 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/index.html - null null
+2026-06-02 16:16:40.694 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/index.html - 200 null text/html;charset=utf-8 233.7518ms
+2026-06-02 16:16:40.699 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-02 16:16:40.700 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - null null
+2026-06-02 16:16:40.713 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 13.6622ms
+2026-06-02 16:16:40.780 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - 200 null text/javascript; charset=UTF-8 80.6577ms
+2026-06-02 16:16:40.806 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - null null
+2026-06-02 16:16:40.836 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 30.0234ms
+2026-06-02 16:19:48.113 +05:30 [INF] User profile is available. Using 'C:\Users\waghm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-02 16:19:48.356 +05:30 [INF] Now listening on: https://localhost:7248
+2026-06-02 16:19:48.357 +05:30 [INF] Now listening on: http://localhost:5122
+2026-06-02 16:19:48.401 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-02 16:19:48.403 +05:30 [INF] Hosting environment: Development
+2026-06-02 16:19:48.404 +05:30 [INF] Content root path: D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API
+2026-06-02 16:19:48.794 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/index.html - null null
+2026-06-02 16:19:48.976 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/index.html - 200 null text/html;charset=utf-8 186.6546ms
+2026-06-02 16:19:48.979 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-02 16:19:48.979 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - null null
+2026-06-02 16:19:48.996 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 17.8969ms
+2026-06-02 16:19:49.082 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - 200 null text/javascript; charset=UTF-8 103.7453ms
+2026-06-02 16:19:49.116 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - null null
+2026-06-02 16:19:49.151 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 35.3267ms
+2026-06-02 16:21:36.344 +05:30 [INF] User profile is available. Using 'C:\Users\waghm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-02 16:21:36.608 +05:30 [INF] Now listening on: https://localhost:7248
+2026-06-02 16:21:36.613 +05:30 [INF] Now listening on: http://localhost:5122
+2026-06-02 16:21:36.669 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-02 16:21:36.672 +05:30 [INF] Hosting environment: Development
+2026-06-02 16:21:36.674 +05:30 [INF] Content root path: D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API
+2026-06-02 16:21:37.067 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/index.html - null null
+2026-06-02 16:21:37.248 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/index.html - 200 null text/html;charset=utf-8 183.8891ms
+2026-06-02 16:21:37.254 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - null null
+2026-06-02 16:21:37.254 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-02 16:21:37.291 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 36.9851ms
+2026-06-02 16:21:37.331 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - 200 null text/javascript; charset=UTF-8 77.6553ms
+2026-06-02 16:21:37.362 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - null null
+2026-06-02 16:21:37.395 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 32.7034ms
+2026-06-02 16:22:31.783 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7248/api/Auth/login - application/json 59
+2026-06-02 16:22:34.837 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.AuthController.Login (Ecommerce.API)'
+2026-06-02 16:22:34.864 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Ecommerce.API.DTOs.Auth.LoginDto) on controller Ecommerce.API.Controllers.AuthController (Ecommerce.API).
+2026-06-02 16:22:36.522 +05:30 [WRN] No store type was specified for the decimal property 'TotalAmount' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-02 16:22:36.527 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-02 16:22:36.529 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-02 16:22:39.600 +05:30 [INF] Executed DbCommand (173ms) [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__dto_Email_0
+2026-06-02 16:22:40.054 +05:30 [INF] User logged in successfully. UserId: 1, Email: abhishek@gmail.com
+2026-06-02 16:22:40.061 +05:30 [INF] Executing OkObjectResult, writing value of type 'Ecommerce.API.DTOs.Auth.AuthResponseDto'.
+2026-06-02 16:22:40.069 +05:30 [INF] Executed action Ecommerce.API.Controllers.AuthController.Login (Ecommerce.API) in 5199.5433ms
+2026-06-02 16:22:40.071 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.AuthController.Login (Ecommerce.API)'
+2026-06-02 16:22:40.078 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7248/api/Auth/login - 200 null application/json; charset=utf-8 8294.7199ms
+2026-06-02 16:23:10.313 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/api/Auth/me - null null
+2026-06-02 16:23:10.374 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.AuthController.GetCurrentUser (Ecommerce.API)'
+2026-06-02 16:23:10.378 +05:30 [INF] Route matched with {action = "GetCurrentUser", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetCurrentUser() on controller Ecommerce.API.Controllers.AuthController (Ecommerce.API).
+2026-06-02 16:23:10.382 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-06-02 16:23:10.386 +05:30 [INF] Executed action Ecommerce.API.Controllers.AuthController.GetCurrentUser (Ecommerce.API) in 5.0051ms
+2026-06-02 16:23:10.388 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.AuthController.GetCurrentUser (Ecommerce.API)'
+2026-06-02 16:23:10.389 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/api/Auth/me - 200 null application/json; charset=utf-8 76.0664ms
+2026-06-02 16:23:40.045 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7248/api/Product/7/upload-image - multipart/form-data; boundary=----WebKitFormBoundaryo1SndXUi0g6gct24 206288
+2026-06-02 16:23:40.059 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.ProductController.UploadImage (Ecommerce.API)'
+2026-06-02 16:23:40.071 +05:30 [INF] Route matched with {action = "UploadImage", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UploadImage(Int32, Microsoft.AspNetCore.Http.IFormFile) on controller Ecommerce.API.Controllers.ProductController (Ecommerce.API).
+2026-06-02 16:23:40.237 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Stock]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__p_0
+2026-06-02 16:23:40.360 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Products] SET [ImageUrl] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2026-06-02 16:23:40.379 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-06-02 16:23:40.387 +05:30 [INF] Executed action Ecommerce.API.Controllers.ProductController.UploadImage (Ecommerce.API) in 311.4268ms
+2026-06-02 16:23:40.388 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.ProductController.UploadImage (Ecommerce.API)'
+2026-06-02 16:23:40.392 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7248/api/Product/7/upload-image - 200 null application/json; charset=utf-8 347.1051ms
+2026-06-02 16:25:33.886 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/images/b06b56dd-13f6-4df3-a319-1ee4fd65a5ad.png - null null
+2026-06-02 16:25:33.985 +05:30 [INF] Sending file. Request path: '/images/b06b56dd-13f6-4df3-a319-1ee4fd65a5ad.png'. Physical path: 'D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\wwwroot\images\b06b56dd-13f6-4df3-a319-1ee4fd65a5ad.png'
+2026-06-02 16:25:33.987 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/images/b06b56dd-13f6-4df3-a319-1ee4fd65a5ad.png - 200 206088 image/png 101.8453ms
+2026-06-02 16:25:33.997 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/favicon.ico - null null
+2026-06-02 16:25:34.003 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/favicon.ico - 404 0 null 6.8486ms
+2026-06-02 16:25:34.010 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7248/favicon.ico, Response status code: 404
