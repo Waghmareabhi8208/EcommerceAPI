@@ -9,10 +9,12 @@ namespace Ecommerce.API.Services
     public class ProductService : IProductService
     {   
         private readonly IProductRepository _repository;
+        private readonly IWebHostEnvironment _environment;
 
-        public ProductService(IProductRepository repository)
+        public ProductService(IProductRepository repository, IWebHostEnvironment environment)
         {
             _repository = repository;
+            _environment = environment;
         }
 
         public async Task<List<ProductResponseDto>> 
@@ -102,6 +104,47 @@ namespace Ecommerce.API.Services
         public async Task<bool> DeleteAsync(int id)
         {
             return await _repository.DeleteAsync(id);
+        }
+
+        public async Task<string?> UploadImageAsync(int productId, IFormFile file)
+        {
+            var product = await _repository.GetByIdAsync(productId);
+
+            if (product == null)
+            {
+                return null;
+            }
+
+            // Create Images folder if not exists
+            string imagesFolder =
+                Path.Combine(
+                    _environment.WebRootPath,
+                    "images");
+
+            if (!Directory.Exists(imagesFolder))
+            {
+                Directory.CreateDirectory(imagesFolder);
+            }
+
+            // Generate unique file name
+            string fileName =
+                $"{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
+
+            string filePath =
+                Path.Combine(imagesFolder, fileName);
+
+            // Save file
+            using (var stream = 
+                new FileStream(filePath,FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            // Save image path in database
+            product.ImageUrl = $"/images/{fileName}";
+
+            await _repository.UpdateAsync(productId, product);
+            return product.ImageUrl;
         }
     }
 }

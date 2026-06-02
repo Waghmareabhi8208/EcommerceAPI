@@ -14,5 +14,6 @@ namespace Ecommerce.API.Interfaces
         Task<ProductResponseDto?> UpdateAsync(int id, ProductUpdateDto dto);
 
         Task<bool> DeleteAsync(int id);
+        Task<string> UploadImageAsync(int productId,IFormFile file);
     }
 }
