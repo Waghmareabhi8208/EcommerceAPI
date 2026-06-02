@@ -27,7 +27,8 @@ namespace Ecommerce.API.Services
                 Name = p.Name,
                 Description = p.Description,
                 Price = p.Price,
-                Stock = p.Stock
+                Stock = p.Stock,
+                ImageUrl = p.ImageUrl
             }).ToList();
             
         }
@@ -49,7 +50,8 @@ namespace Ecommerce.API.Services
                 Name = createdProduct.Name,
                 Description = createdProduct.Description,
                 Price = createdProduct.Price,
-                Stock = createdProduct.Stock
+                Stock = createdProduct.Stock,
+                ImageUrl = createdProduct.ImageUrl
             };
         }
 
@@ -66,7 +68,8 @@ namespace Ecommerce.API.Services
                 Name = product.Name,
                 Description = product.Description,
                 Price = product.Price,
-                Stock = product.Stock
+                Stock = product.Stock,
+                ImageUrl = product.ImageUrl
             };
         }
 
@@ -92,6 +95,7 @@ namespace Ecommerce.API.Services
                 Description = updateProduct.Description,
                 Price = updateProduct.Price,
                 Stock = updateProduct.Stock,
+                ImageUrl = updateProduct.ImageUrl
             };
         }
 
