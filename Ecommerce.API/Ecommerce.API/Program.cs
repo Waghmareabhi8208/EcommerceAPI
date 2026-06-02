@@ -140,6 +140,9 @@ app.UseMiddleware<GlobalExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 
+// Middleware added to enable static files
+app.UseStaticFiles();
+
 // Middleware Added for authentication
 app.UseAuthentication();
 

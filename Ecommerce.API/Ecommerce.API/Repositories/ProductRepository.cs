@@ -102,6 +102,8 @@ namespace Ecommerce.API.Repositories
             existingProduct.Description = product.Description;
             existingProduct.Price = product.Price;
             existingProduct.Stock = product.Stock;
+            existingProduct.ImageUrl = product.ImageUrl;
+
 
             await _context.SaveChangesAsync();
             return existingProduct;

@@ -5,6 +5,7 @@ using Ecommerce.API.Entities;
 using Ecommerce.API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace Ecommerce.API.Controllers
 {
@@ -74,6 +75,24 @@ namespace Ecommerce.API.Controllers
                 return NotFound();
 
             return NoContent();
+        }
+
+
+        // Api endpoint for uploading images of product by admin
+        [HttpPost("{id}/upload-image")]
+        public async Task<IActionResult> UploadImage(int id,IFormFile file)
+        {
+            var imageUrl = await _service.UploadImageAsync(id, file);
+
+            if(imageUrl == null)
+            {
+                return NotFound("Product not found");
+            }
+
+            return Ok(new
+            {
+                ImageUrl = imageUrl
+            });
         }
     }
 }
