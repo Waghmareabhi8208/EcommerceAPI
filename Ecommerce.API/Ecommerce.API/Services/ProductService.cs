@@ -115,6 +115,51 @@ namespace Ecommerce.API.Services
                 return null;
             }
 
+            if(file == null || file.Length ==0)
+            {
+                throw new Exception("Please select an image");
+            }
+
+            // File Extension validation
+            string[] allowedExtensions =
+            {
+                ".jpg",
+                ".jpeg",
+                ".png",
+                ".webp"
+            };
+
+            string extension = 
+                Path.GetExtension(file.FileName)
+                .ToLower();
+
+            if (!allowedExtensions.Contains(extension))
+            {
+                throw new Exception(
+                    "Only JPG, JPEG, PNG and WEBP images are allowed.");
+            }
+
+            // File size validation
+            if (file.Length > 5 * 1024 * 1024)
+            {
+                throw new Exception(
+                    "Image size cannot exceed 5 MB.");
+            }
+
+            // Content-type validation
+            string[] allowedContentTypes =
+            {
+                "image/jpeg",
+                "image/png",
+                "image/webp"
+            };
+
+            if (!allowedContentTypes.Contains(file.ContentType))
+            {
+                throw new Exception(
+                    "Invalid image format.");
+            }
+
             // Create Images folder if not exists
             string imagesFolder =
                 Path.Combine(
