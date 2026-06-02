@@ -158,3 +158,4 @@ D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\
 D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\Serilog.Sinks.Console.dll
 D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
 D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\Serilog.Sinks.File.dll
+D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API\bin\Debug\net8.0\Ecommerce.API.staticwebassets.runtime.json
