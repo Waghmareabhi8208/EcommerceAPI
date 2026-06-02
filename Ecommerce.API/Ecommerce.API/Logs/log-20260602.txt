@@ -592,3 +592,17 @@ System.Exception: Image size cannot exceed 5 MB.
 2026-06-02 17:41:57.862 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - 200 null text/javascript; charset=UTF-8 53.6323ms
 2026-06-02 17:41:57.887 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - null null
 2026-06-02 17:41:57.917 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 31.0995ms
+2026-06-02 19:12:44.870 +05:30 [INF] User profile is available. Using 'C:\Users\waghm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-02 19:12:45.070 +05:30 [INF] Now listening on: https://localhost:7248
+2026-06-02 19:12:45.071 +05:30 [INF] Now listening on: http://localhost:5122
+2026-06-02 19:12:45.102 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-02 19:12:45.104 +05:30 [INF] Hosting environment: Development
+2026-06-02 19:12:45.107 +05:30 [INF] Content root path: D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API
+2026-06-02 19:12:45.684 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/index.html - null null
+2026-06-02 19:12:45.921 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/index.html - 200 null text/html;charset=utf-8 244.5145ms
+2026-06-02 19:12:45.927 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-02 19:12:45.927 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - null null
+2026-06-02 19:12:45.941 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 14.2261ms
+2026-06-02 19:12:45.999 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - 200 null text/javascript; charset=UTF-8 72.9794ms
+2026-06-02 19:12:46.025 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - null null
+2026-06-02 19:12:46.049 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.4631ms

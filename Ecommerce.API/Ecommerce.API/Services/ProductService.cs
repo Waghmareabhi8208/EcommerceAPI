@@ -3,6 +3,8 @@ using Ecommerce.API.DTOs.Common;
 using Ecommerce.API.Entities;
 using Ecommerce.API.Interfaces;
 using Microsoft.OpenApi.Validations;
+using StackExchange.Redis;
+using System.Text.Json;
 
 namespace Ecommerce.API.Services
 {
@@ -10,28 +12,63 @@ namespace Ecommerce.API.Services
     {   
         private readonly IProductRepository _repository;
         private readonly IWebHostEnvironment _environment;
+        private readonly IConnectionMultiplexer _redis;
 
-        public ProductService(IProductRepository repository, IWebHostEnvironment environment)
+        public ProductService(
+            IProductRepository repository, 
+            IWebHostEnvironment environment,
+            IConnectionMultiplexer redis)
         {
             _repository = repository;
             _environment = environment;
+            _redis = redis;
         }
 
         public async Task<List<ProductResponseDto>> 
             GetAllAsync(
                 ProductQueryParams queryParams)
         {
+            string cacheKey =
+                $"products:" +
+                $"{queryParams.Search}:" +
+                $"{queryParams.MinPrice}:" +
+                $"{queryParams.MaxPrice}:" +
+                $"{queryParams.InStock}:" +
+                $"{queryParams.SortBy}:" +
+                $"{queryParams.PageNumber}:" +
+                $"{queryParams.PageSize}";
+
+            var db = _redis.GetDatabase();
+
+            string? cachedProducts =
+                await db.StringGetAsync(cacheKey);
+
+            if (!string.IsNullOrEmpty(cachedProducts))
+            {
+                return JsonSerializer.Deserialize<
+                    List<ProductResponseDto>>(
+                        cachedProducts)!;
+            }
+
             var products = await _repository.GetAllAsync(queryParams);
 
-            return products.Select(p => new ProductResponseDto
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Description = p.Description,
-                Price = p.Price,
-                Stock = p.Stock,
-                ImageUrl = p.ImageUrl
-            }).ToList();
+            var productDtos = products.Select(p =>
+                new ProductResponseDto
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Description = p.Description,
+                    Price = p.Price,
+                    Stock = p.Stock,
+                    ImageUrl = p.ImageUrl
+                }).ToList();
+
+            await db.StringSetAsync(
+                cacheKey,
+                JsonSerializer.Serialize(productDtos),
+                TimeSpan.FromMinutes(5)); // Cache lives for 5 minutes
+
+            return productDtos;
             
         }
         public async Task<ProductResponseDto> AddAsync(ProductCreateDto dto)
