@@ -490,6 +490,22 @@
   },
   {
     "ContainingType": "Ecommerce.API.Controllers.ProductController",
+    "Method": "DeleteImage",
+    "RelativePath": "api/Product/{id}/image",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Ecommerce.API.Controllers.ProductController",
     "Method": "UploadImage",
     "RelativePath": "api/Product/{id}/upload-image",
     "HttpMethod": "POST",

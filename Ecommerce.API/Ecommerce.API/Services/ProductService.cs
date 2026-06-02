@@ -161,5 +161,38 @@ namespace Ecommerce.API.Services
 
             return product.ImageUrl;
         }
+
+        public async Task<bool> DeleteImageAsync(int productId)
+        {
+            var product = await _repository.GetByIdAsync(productId);
+
+            if (product == null ) 
+            { 
+                return false; 
+            }
+
+            if(string.IsNullOrEmpty(product.ImageUrl))
+            {
+                return false;
+            }
+
+            string imagePath =
+                  Path.Combine(
+                      _environment.WebRootPath,
+                      product.ImageUrl.TrimStart('/'));
+
+            if (File.Exists(imagePath))
+            {
+                File.Delete(imagePath);
+            }
+
+            product.ImageUrl = null;
+
+            await _repository.UpdateAsync(
+                productId,
+                product);
+
+            return true;
+        }
     }
 }

@@ -94,5 +94,22 @@ namespace Ecommerce.API.Controllers
                 ImageUrl = imageUrl
             });
         }
+
+        // Api endpoint for deleting image of product by admin
+        [HttpDelete("{id}/image")]
+        public async Task<IActionResult> DeleteImage(int id)
+        {
+            bool deleted =
+                await _service.DeleteImageAsync(id);
+
+            if (!deleted)
+            {
+                return NotFound(
+                    "Image not found");
+            }
+
+            return Ok(
+                "Image deleted successfully");
+        }
     }
 }

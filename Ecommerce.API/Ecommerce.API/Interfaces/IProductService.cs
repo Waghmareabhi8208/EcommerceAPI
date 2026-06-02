@@ -15,5 +15,6 @@ namespace Ecommerce.API.Interfaces
 
         Task<bool> DeleteAsync(int id);
         Task<string> UploadImageAsync(int productId,IFormFile file);
+        Task<bool> DeleteImageAsync(int productId);
     }
 }
