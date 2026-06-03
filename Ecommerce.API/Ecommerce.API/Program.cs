@@ -6,12 +6,14 @@ using Ecommerce.API.Services;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using StackExchange.Redis;
 using System.Reflection;
 using System.Text;
+using System.Threading.RateLimiting;
 
 // Logger Configuration
 Log.Logger = new LoggerConfiguration()
@@ -125,6 +127,25 @@ builder.Services.AddScoped<IPaymentService,PaymentService>();
 builder.Services.AddSingleton<IConnectionMultiplexer>(
     ConnectionMultiplexer.Connect(
         builder.Configuration["Redis:ConnectionString"]!));
+
+// Register Rate Limiter Service
+builder.Services.AddRateLimiter(options =>
+{
+    options.AddFixedWindowLimiter(
+        "AuthPolicy",
+        limiterOptions =>
+        {
+            limiterOptions.PermitLimit = 5;
+
+            limiterOptions.Window =
+                TimeSpan.FromMinutes(1);
+
+            limiterOptions.QueueProcessingOrder =
+                QueueProcessingOrder.OldestFirst;
+
+            limiterOptions.QueueLimit = 0;
+        });
+});
 
 var app = builder.Build();
 
