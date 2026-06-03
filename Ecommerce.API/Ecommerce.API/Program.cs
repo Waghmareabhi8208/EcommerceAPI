@@ -133,6 +133,22 @@ builder.Services.AddRateLimiter(options =>
 {
     options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
 
+    options.OnRejected = async (
+        context,
+        CancellationToken) =>
+    {
+        context.HttpContext.Response.ContentType = "application/json";
+
+        await context.HttpContext.Response.WriteAsync(
+            """
+            {
+                "message":
+                "Too many requests. Please try again after 1 minute."
+            }
+            """,
+           CancellationToken);
+    };
+
     options.AddFixedWindowLimiter(
         "AuthPolicy",
         limiterOptions =>
