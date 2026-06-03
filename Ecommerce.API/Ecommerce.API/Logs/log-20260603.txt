@@ -1,0 +1,161 @@
+2026-06-03 11:43:04.819 +05:30 [INF] User profile is available. Using 'C:\Users\waghm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-03 11:43:05.035 +05:30 [INF] Now listening on: https://localhost:7248
+2026-06-03 11:43:05.039 +05:30 [INF] Now listening on: http://localhost:5122
+2026-06-03 11:43:05.073 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-03 11:43:05.078 +05:30 [INF] Hosting environment: Development
+2026-06-03 11:43:05.079 +05:30 [INF] Content root path: D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API
+2026-06-03 11:43:05.430 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/index.html - null null
+2026-06-03 11:43:05.680 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/index.html - 200 null text/html;charset=utf-8 254.1684ms
+2026-06-03 11:43:05.683 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-03 11:43:05.683 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - null null
+2026-06-03 11:43:05.696 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 12.8581ms
+2026-06-03 11:43:05.771 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - 200 null text/javascript; charset=UTF-8 88.1045ms
+2026-06-03 11:43:05.805 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - null null
+2026-06-03 11:43:05.841 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 36.5895ms
+2026-06-03 11:43:28.148 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7248/api/Auth/login - application/json 59
+2026-06-03 11:43:28.262 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.AuthController.Login (Ecommerce.API)'
+2026-06-03 11:43:28.293 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Ecommerce.API.DTOs.Auth.LoginDto) on controller Ecommerce.API.Controllers.AuthController (Ecommerce.API).
+2026-06-03 11:43:29.230 +05:30 [WRN] No store type was specified for the decimal property 'TotalAmount' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 11:43:29.233 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 11:43:29.235 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 11:43:30.869 +05:30 [INF] Executed DbCommand (51ms) [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__dto_Email_0
+2026-06-03 11:43:31.277 +05:30 [INF] User logged in successfully. UserId: 1, Email: abhishek@gmail.com
+2026-06-03 11:43:31.284 +05:30 [INF] Executing OkObjectResult, writing value of type 'Ecommerce.API.DTOs.Auth.AuthResponseDto'.
+2026-06-03 11:43:31.292 +05:30 [INF] Executed action Ecommerce.API.Controllers.AuthController.Login (Ecommerce.API) in 2992.9658ms
+2026-06-03 11:43:31.295 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.AuthController.Login (Ecommerce.API)'
+2026-06-03 11:43:31.307 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7248/api/Auth/login - 200 null application/json; charset=utf-8 3159.7767ms
+2026-06-03 11:43:49.555 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/api/Auth/me - null null
+2026-06-03 11:43:49.625 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.AuthController.GetCurrentUser (Ecommerce.API)'
+2026-06-03 11:43:49.627 +05:30 [INF] Route matched with {action = "GetCurrentUser", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetCurrentUser() on controller Ecommerce.API.Controllers.AuthController (Ecommerce.API).
+2026-06-03 11:43:49.630 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-06-03 11:43:49.632 +05:30 [INF] Executed action Ecommerce.API.Controllers.AuthController.GetCurrentUser (Ecommerce.API) in 4.2019ms
+2026-06-03 11:43:49.633 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.AuthController.GetCurrentUser (Ecommerce.API)'
+2026-06-03 11:43:49.639 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/api/Auth/me - 200 null application/json; charset=utf-8 84.1313ms
+2026-06-03 11:45:18.996 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/api/Product?MinPrice=5000 - null null
+2026-06-03 11:45:19.013 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API)'
+2026-06-03 11:45:19.019 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProducts(Ecommerce.API.DTOs.Common.ProductQueryParams) on controller Ecommerce.API.Controllers.ProductController (Ecommerce.API).
+2026-06-03 11:45:47.561 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__queryParams_MinPrice_Value_0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Stock]
+FROM [Products] AS [p]
+WHERE [p].[Price] >= @__queryParams_MinPrice_Value_0
+ORDER BY [p].[Id]
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2026-06-03 11:46:41.448 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Ecommerce.API.DTOs.ProductResponseDto, Ecommerce.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 11:46:56.773 +05:30 [INF] Executed action Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API) in 97751.7404ms
+2026-06-03 11:46:56.779 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API)'
+2026-06-03 11:47:09.309 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/api/Product?MinPrice=5000 - 200 null application/json; charset=utf-8 110312.9164ms
+2026-06-03 11:47:47.025 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/api/Product?MinPrice=5000 - null null
+2026-06-03 11:47:47.042 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API)'
+2026-06-03 11:47:47.043 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProducts(Ecommerce.API.DTOs.Common.ProductQueryParams) on controller Ecommerce.API.Controllers.ProductController (Ecommerce.API).
+2026-06-03 11:47:47.053 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Ecommerce.API.DTOs.ProductResponseDto, Ecommerce.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 11:47:47.055 +05:30 [INF] Executed action Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API) in 9.6707ms
+2026-06-03 11:47:47.057 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API)'
+2026-06-03 11:47:47.059 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/api/Product?MinPrice=5000 - 200 null application/json; charset=utf-8 34.9265ms
+2026-06-03 11:48:22.094 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/api/Product?MinPrice=5000 - null null
+2026-06-03 11:48:22.097 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API)'
+2026-06-03 11:48:22.099 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProducts(Ecommerce.API.DTOs.Common.ProductQueryParams) on controller Ecommerce.API.Controllers.ProductController (Ecommerce.API).
+2026-06-03 11:48:22.111 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Ecommerce.API.DTOs.ProductResponseDto, Ecommerce.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 11:48:22.112 +05:30 [INF] Executed action Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API) in 9.4271ms
+2026-06-03 11:48:22.115 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API)'
+2026-06-03 11:48:22.117 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/api/Product?MinPrice=5000 - 200 null application/json; charset=utf-8 24.3831ms
+2026-06-03 12:08:50.036 +05:30 [INF] User profile is available. Using 'C:\Users\waghm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-03 12:08:50.282 +05:30 [INF] Now listening on: https://localhost:7248
+2026-06-03 12:08:50.284 +05:30 [INF] Now listening on: http://localhost:5122
+2026-06-03 12:08:50.336 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-03 12:08:50.337 +05:30 [INF] Hosting environment: Development
+2026-06-03 12:08:50.338 +05:30 [INF] Content root path: D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API
+2026-06-03 12:08:50.607 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/index.html - null null
+2026-06-03 12:08:50.797 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/index.html - 200 null text/html;charset=utf-8 192.1347ms
+2026-06-03 12:08:50.801 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-03 12:08:50.801 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - null null
+2026-06-03 12:08:50.813 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 12.2212ms
+2026-06-03 12:08:50.853 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - 200 null text/javascript; charset=UTF-8 51.7912ms
+2026-06-03 12:08:50.877 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - null null
+2026-06-03 12:08:50.904 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 26.3923ms
+2026-06-03 12:26:05.425 +05:30 [INF] User profile is available. Using 'C:\Users\waghm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-03 12:26:05.575 +05:30 [INF] Now listening on: https://localhost:7248
+2026-06-03 12:26:05.579 +05:30 [INF] Now listening on: http://localhost:5122
+2026-06-03 12:26:05.609 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-03 12:26:05.612 +05:30 [INF] Hosting environment: Development
+2026-06-03 12:26:05.613 +05:30 [INF] Content root path: D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API
+2026-06-03 12:26:05.889 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/index.html - null null
+2026-06-03 12:26:06.076 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/index.html - 200 null text/html;charset=utf-8 190.4885ms
+2026-06-03 12:26:06.081 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - null null
+2026-06-03 12:26:06.081 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-03 12:26:06.108 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 27.1802ms
+2026-06-03 12:26:06.144 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - 200 null text/javascript; charset=UTF-8 63.3045ms
+2026-06-03 12:26:06.169 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - null null
+2026-06-03 12:26:06.199 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 30.4763ms
+2026-06-03 12:42:33.758 +05:30 [INF] User profile is available. Using 'C:\Users\waghm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-03 12:42:34.015 +05:30 [INF] Now listening on: https://localhost:7248
+2026-06-03 12:42:34.016 +05:30 [INF] Now listening on: http://localhost:5122
+2026-06-03 12:42:34.051 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-03 12:42:34.057 +05:30 [INF] Hosting environment: Development
+2026-06-03 12:42:34.061 +05:30 [INF] Content root path: D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API
+2026-06-03 12:42:34.602 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/index.html - null null
+2026-06-03 12:42:34.823 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-03 12:42:34.823 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - null null
+2026-06-03 12:42:34.842 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/index.html - 200 null text/html;charset=utf-8 242.6855ms
+2026-06-03 12:42:34.854 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 31.3463ms
+2026-06-03 12:42:34.917 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - 200 null text/javascript; charset=UTF-8 94.0675ms
+2026-06-03 12:42:34.951 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - null null
+2026-06-03 12:42:34.981 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 30.8623ms
+2026-06-03 12:43:07.694 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7248/api/Auth/login - application/json 59
+2026-06-03 12:43:11.654 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.AuthController.Login (Ecommerce.API)'
+2026-06-03 12:43:11.694 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Ecommerce.API.DTOs.Auth.LoginDto) on controller Ecommerce.API.Controllers.AuthController (Ecommerce.API).
+2026-06-03 12:43:13.511 +05:30 [WRN] No store type was specified for the decimal property 'TotalAmount' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 12:43:13.514 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 12:43:13.515 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 12:43:16.814 +05:30 [INF] Executed DbCommand (213ms) [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__dto_Email_0
+2026-06-03 12:43:17.338 +05:30 [INF] User logged in successfully. UserId: 1, Email: abhishek@gmail.com
+2026-06-03 12:43:17.349 +05:30 [INF] Executing OkObjectResult, writing value of type 'Ecommerce.API.DTOs.Auth.AuthResponseDto'.
+2026-06-03 12:43:17.358 +05:30 [INF] Executed action Ecommerce.API.Controllers.AuthController.Login (Ecommerce.API) in 5656.7645ms
+2026-06-03 12:43:17.362 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.AuthController.Login (Ecommerce.API)'
+2026-06-03 12:43:17.372 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7248/api/Auth/login - 200 null application/json; charset=utf-8 9679.2683ms
+2026-06-03 12:43:47.867 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/api/Auth/me - null null
+2026-06-03 12:43:47.940 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.AuthController.GetCurrentUser (Ecommerce.API)'
+2026-06-03 12:43:47.943 +05:30 [INF] Route matched with {action = "GetCurrentUser", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetCurrentUser() on controller Ecommerce.API.Controllers.AuthController (Ecommerce.API).
+2026-06-03 12:43:47.946 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-06-03 12:43:47.949 +05:30 [INF] Executed action Ecommerce.API.Controllers.AuthController.GetCurrentUser (Ecommerce.API) in 4.2581ms
+2026-06-03 12:43:47.952 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.AuthController.GetCurrentUser (Ecommerce.API)'
+2026-06-03 12:43:47.953 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/api/Auth/me - 200 null application/json; charset=utf-8 86.096ms
+2026-06-03 12:44:07.061 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/api/Product?MinPrice=5000 - null null
+2026-06-03 12:44:07.073 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API)'
+2026-06-03 12:44:07.083 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProducts(Ecommerce.API.DTOs.Common.ProductQueryParams) on controller Ecommerce.API.Controllers.ProductController (Ecommerce.API).
+2026-06-03 12:45:17.093 +05:30 [INF] Executed DbCommand (24ms) [Parameters=[@__queryParams_MinPrice_Value_0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Stock]
+FROM [Products] AS [p]
+WHERE [p].[Price] >= @__queryParams_MinPrice_Value_0
+ORDER BY [p].[Id]
+OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+2026-06-03 12:46:15.740 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Ecommerce.API.DTOs.ProductResponseDto, Ecommerce.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 12:46:15.754 +05:30 [INF] Executed action Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API) in 128668.5333ms
+2026-06-03 12:46:15.759 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API)'
+2026-06-03 12:46:15.763 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/api/Product?MinPrice=5000 - 200 null application/json; charset=utf-8 128702.6697ms
+2026-06-03 12:46:42.962 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/api/Product?MinPrice=5000 - null null
+2026-06-03 12:46:42.973 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API)'
+2026-06-03 12:46:42.975 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProducts(Ecommerce.API.DTOs.Common.ProductQueryParams) on controller Ecommerce.API.Controllers.ProductController (Ecommerce.API).
+2026-06-03 12:46:50.225 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Ecommerce.API.DTOs.ProductResponseDto, Ecommerce.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 12:46:50.227 +05:30 [INF] Executed action Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API) in 7248.6101ms
+2026-06-03 12:46:50.230 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API)'
+2026-06-03 12:46:50.231 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/api/Product?MinPrice=5000 - 200 null application/json; charset=utf-8 7269.6129ms
+2026-06-03 12:47:32.206 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/api/Product?MinPrice=5000 - null null
+2026-06-03 12:47:32.216 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API)'
+2026-06-03 12:47:32.218 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProducts(Ecommerce.API.DTOs.Common.ProductQueryParams) on controller Ecommerce.API.Controllers.ProductController (Ecommerce.API).
+2026-06-03 12:47:38.079 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Ecommerce.API.DTOs.ProductResponseDto, Ecommerce.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 12:47:38.082 +05:30 [INF] Executed action Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API) in 5862.7285ms
+2026-06-03 12:47:38.085 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API)'
+2026-06-03 12:47:38.086 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/api/Product?MinPrice=5000 - 200 null application/json; charset=utf-8 5879.7399ms
+2026-06-03 12:47:59.230 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/api/Product?MinPrice=5000 - null null
+2026-06-03 12:47:59.240 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API)'
+2026-06-03 12:47:59.243 +05:30 [INF] Route matched with {action = "GetProducts", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProducts(Ecommerce.API.DTOs.Common.ProductQueryParams) on controller Ecommerce.API.Controllers.ProductController (Ecommerce.API).
+2026-06-03 12:48:36.557 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Ecommerce.API.DTOs.ProductResponseDto, Ecommerce.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-03 12:48:36.559 +05:30 [INF] Executed action Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API) in 37314.5658ms
+2026-06-03 12:48:36.562 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.ProductController.GetProducts (Ecommerce.API)'
+2026-06-03 12:48:36.563 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/api/Product?MinPrice=5000 - 200 null application/json; charset=utf-8 37332.8018ms

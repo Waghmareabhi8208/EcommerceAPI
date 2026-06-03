@@ -83,6 +83,9 @@ namespace Ecommerce.API.Services
 
             var createdProduct = await _repository.AddAsync(product);
 
+            // Cache Invalidation added
+            await ClearProductCacheAsync();
+
             return new ProductResponseDto
             {
                 Id = createdProduct.Id,
@@ -123,9 +126,12 @@ namespace Ecommerce.API.Services
             };
 
             var updateProduct = await _repository.UpdateAsync(id, product);
-
-            if(updateProduct == null)
+ 
+            if (updateProduct == null)
                 return null;
+
+            // Cache Invalidation added
+            await ClearProductCacheAsync();
 
             return new ProductResponseDto
             {
@@ -140,7 +146,16 @@ namespace Ecommerce.API.Services
 
         public async Task<bool> DeleteAsync(int id)
         {
-            return await _repository.DeleteAsync(id);
+            var result =
+                await _repository.DeleteAsync(id);
+
+            // Cache Invalidation added
+            if (result)
+            {
+                await ClearProductCacheAsync();
+            }
+
+            return result;
         }
 
         public async Task<string?> UploadImageAsync(int productId, IFormFile file)
@@ -241,6 +256,9 @@ namespace Ecommerce.API.Services
 
             await _repository.UpdateAsync(productId, product);
 
+            // Cache Invalidation added
+            await ClearProductCacheAsync();
+
             return product.ImageUrl;
         }
 
@@ -274,7 +292,24 @@ namespace Ecommerce.API.Services
                 productId,
                 product);
 
+            // Cache Invalidation added
+            await ClearProductCacheAsync();
+
             return true;
+        }
+
+        private async Task ClearProductCacheAsync()
+        {
+            var server = _redis.GetServer(
+                _redis.GetEndPoints().First());
+
+            var db = _redis.GetDatabase();
+
+            foreach (var key in server.Keys(
+                pattern: "products:*"))
+            {
+                await db.KeyDeleteAsync(key);
+            }
         }
     }
 }
