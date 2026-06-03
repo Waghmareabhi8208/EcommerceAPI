@@ -2,10 +2,12 @@
 using Ecommerce.API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using System.Security.Claims;
 
 namespace Ecommerce.API.Controllers
 {
+    [EnableRateLimiting("AuthPolicy")]
     [ApiController]
     [Route("api/[controller]")]
     public class AuthController : ControllerBase

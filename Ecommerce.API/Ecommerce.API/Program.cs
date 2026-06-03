@@ -131,6 +131,8 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(
 // Register Rate Limiter Service
 builder.Services.AddRateLimiter(options =>
 {
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+
     options.AddFixedWindowLimiter(
         "AuthPolicy",
         limiterOptions =>
@@ -168,6 +170,9 @@ app.UseStaticFiles();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+// Middleware added for rate limiting
+app.UseRateLimiter();
 
 app.MapControllers();
 
