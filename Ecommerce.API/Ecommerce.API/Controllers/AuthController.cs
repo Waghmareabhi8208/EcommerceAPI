@@ -7,7 +7,6 @@ using System.Security.Claims;
 
 namespace Ecommerce.API.Controllers
 {
-    [EnableRateLimiting("AuthPolicy")]
     [ApiController]
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
@@ -19,7 +18,7 @@ namespace Ecommerce.API.Controllers
             _authService = authService;
         }
 
-
+        [EnableRateLimiting("RegisterPolicy")]
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDto dto)
         {
@@ -33,6 +32,7 @@ namespace Ecommerce.API.Controllers
             return Ok(result);
         }
 
+        [EnableRateLimiting("LoginPolicy")]
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDto dto)
         {
@@ -66,6 +66,7 @@ namespace Ecommerce.API.Controllers
         }
 
         // Api Endpoint to add refresh token
+        [EnableRateLimiting("RefreshTokenPolicy")]
         [HttpPost("refresh")]
         public async Task<IActionResult> RefreshToken(RefreshTokenRequestDto dto)
         {
