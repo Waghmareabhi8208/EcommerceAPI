@@ -148,19 +148,35 @@ builder.Services.AddRateLimiter(options =>
             """,
            CancellationToken);
     };
+    
+    // Added independent policies for login,register and refresh token
+    options.AddFixedWindowLimiter(
+    "LoginPolicy",
+    limiterOptions =>
+    {
+        limiterOptions.PermitLimit = 5;
+        limiterOptions.Window =
+            TimeSpan.FromMinutes(1);
+        limiterOptions.QueueLimit = 0;
+    });
 
     options.AddFixedWindowLimiter(
-        "AuthPolicy",
+        "RegisterPolicy",
         limiterOptions =>
         {
-            limiterOptions.PermitLimit = 5;
-
+            limiterOptions.PermitLimit = 3;
             limiterOptions.Window =
                 TimeSpan.FromMinutes(1);
+            limiterOptions.QueueLimit = 0;
+        });
 
-            limiterOptions.QueueProcessingOrder =
-                QueueProcessingOrder.OldestFirst;
-
+    options.AddFixedWindowLimiter(
+        "RefreshTokenPolicy",
+        limiterOptions =>
+        {
+            limiterOptions.PermitLimit = 10;
+            limiterOptions.Window =
+                TimeSpan.FromMinutes(1);
             limiterOptions.QueueLimit = 0;
         });
 });
