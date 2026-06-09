@@ -642,3 +642,76 @@ WHERE [u].[Email] = @__dto_Email_0
 2026-06-03 20:35:28.986 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7248/api/Auth/refresh - 401 null text/plain; charset=utf-8 21.935ms
 2026-06-03 20:35:29.962 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7248/api/Auth/refresh - application/json 30
 2026-06-03 20:35:29.965 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7248/api/Auth/refresh - 429 null application/json 2.4523ms
+2026-06-03 21:06:17.135 +05:30 [INF] User profile is available. Using 'C:\Users\waghm\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-03 21:06:17.351 +05:30 [INF] Now listening on: https://localhost:7248
+2026-06-03 21:06:17.354 +05:30 [INF] Now listening on: http://localhost:5122
+2026-06-03 21:06:17.388 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-03 21:06:17.389 +05:30 [INF] Hosting environment: Development
+2026-06-03 21:06:17.390 +05:30 [INF] Content root path: D:\ConsulencyPractise\EcommerceAPI\Ecommerce.API\Ecommerce.API
+2026-06-03 21:06:18.375 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/index.html - null null
+2026-06-03 21:06:18.631 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/index.html - 200 null text/html;charset=utf-8 266.1004ms
+2026-06-03 21:06:18.646 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - null null
+2026-06-03 21:06:18.646 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - null null
+2026-06-03 21:06:18.664 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - 200 16511 application/javascript; charset=utf-8 18.9661ms
+2026-06-03 21:06:18.718 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - 200 null text/javascript; charset=UTF-8 72.4515ms
+2026-06-03 21:06:18.748 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - null null
+2026-06-03 21:06:18.784 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 36.5465ms
+2026-06-03 21:06:59.663 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7248/api/Auth/login - application/json 53
+2026-06-03 21:06:59.735 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.AuthController.Login (Ecommerce.API)'
+2026-06-03 21:06:59.752 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Ecommerce.API.DTOs.Auth.LoginDto) on controller Ecommerce.API.Controllers.AuthController (Ecommerce.API).
+2026-06-03 21:07:00.711 +05:30 [WRN] No store type was specified for the decimal property 'TotalAmount' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 21:07:00.713 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 21:07:00.714 +05:30 [WRN] No store type was specified for the decimal property 'Price' on entity type 'Product'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-06-03 21:07:03.507 +05:30 [INF] Executed DbCommand (138ms) [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__dto_Email_0
+2026-06-03 21:07:03.539 +05:30 [WRN] Login failed. User not found for Email: aman@gmail.com
+2026-06-03 21:07:03.547 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2026-06-03 21:07:03.553 +05:30 [INF] Executed action Ecommerce.API.Controllers.AuthController.Login (Ecommerce.API) in 3796.4452ms
+2026-06-03 21:07:03.555 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.AuthController.Login (Ecommerce.API)'
+2026-06-03 21:07:03.564 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7248/api/Auth/login - 401 null text/plain; charset=utf-8 3900.913ms
+2026-06-03 21:07:38.551 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/api/Auth/me - null null
+2026-06-03 21:07:38.565 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-06-03 21:07:38.571 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-06-03 21:07:38.573 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/api/Auth/me - 401 0 null 22.2641ms
+2026-06-03 21:08:09.625 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7248/api/Auth/register - application/json 71
+2026-06-03 21:08:09.638 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.AuthController.Register (Ecommerce.API)'
+2026-06-03 21:08:09.644 +05:30 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Ecommerce.API.DTOs.Auth.RegisterDto) on controller Ecommerce.API.Controllers.AuthController (Ecommerce.API).
+2026-06-03 21:08:09.665 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-06-03 21:08:09.683 +05:30 [INF] Executed action Ecommerce.API.Controllers.AuthController.Register (Ecommerce.API) in 37.0676ms
+2026-06-03 21:08:09.685 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.AuthController.Register (Ecommerce.API)'
+2026-06-03 21:08:09.686 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7248/api/Auth/register - 400 null application/problem+json; charset=utf-8 61.6262ms
+2026-06-03 21:08:37.438 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7248/api/Auth/register - application/json 76
+2026-06-03 21:08:37.444 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.AuthController.Register (Ecommerce.API)'
+2026-06-03 21:08:37.445 +05:30 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Ecommerce.API.DTOs.Auth.RegisterDto) on controller Ecommerce.API.Controllers.AuthController (Ecommerce.API).
+2026-06-03 21:08:37.525 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__dto_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__dto_Email_0
+2026-06-03 21:08:37.905 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Name], [PasswordHash], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-06-03 21:08:38.043 +05:30 [INF] User registered successfully. UserId: 8, Email : aman@gmail.com
+2026-06-03 21:08:38.044 +05:30 [INF] Executing OkObjectResult, writing value of type 'Ecommerce.API.DTOs.Auth.AuthResponseDto'.
+2026-06-03 21:08:38.046 +05:30 [INF] Executed action Ecommerce.API.Controllers.AuthController.Register (Ecommerce.API) in 599.5441ms
+2026-06-03 21:08:38.047 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.AuthController.Register (Ecommerce.API)'
+2026-06-03 21:08:38.048 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7248/api/Auth/register - 200 null application/json; charset=utf-8 609.4491ms
+2026-06-03 21:09:06.085 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/api/Auth/me - null null
+2026-06-03 21:09:06.152 +05:30 [INF] Executing endpoint 'Ecommerce.API.Controllers.AuthController.GetCurrentUser (Ecommerce.API)'
+2026-06-03 21:09:06.156 +05:30 [INF] Route matched with {action = "GetCurrentUser", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetCurrentUser() on controller Ecommerce.API.Controllers.AuthController (Ecommerce.API).
+2026-06-03 21:09:06.159 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-06-03 21:09:06.163 +05:30 [INF] Executed action Ecommerce.API.Controllers.AuthController.GetCurrentUser (Ecommerce.API) in 4.5817ms
+2026-06-03 21:09:06.165 +05:30 [INF] Executed endpoint 'Ecommerce.API.Controllers.AuthController.GetCurrentUser (Ecommerce.API)'
+2026-06-03 21:09:06.167 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/api/Auth/me - 200 null application/json; charset=utf-8 82.8246ms
+2026-06-03 21:10:52.624 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - null null
+2026-06-03 21:10:52.677 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 53.5189ms
+2026-06-03 21:10:52.699 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/favicon.ico - null null
+2026-06-03 21:10:52.723 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/favicon.ico - 404 0 null 23.9779ms
+2026-06-03 21:10:52.729 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7248/favicon.ico, Response status code: 404
+2026-06-03 21:11:01.904 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - null null
+2026-06-03 21:11:01.944 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 40.7782ms
