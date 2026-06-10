@@ -210,4 +210,14 @@ app.UseRateLimiter();
 
 app.MapControllers();
 
+app.MapGet("/health", () =>
+{
+    return Results.Ok(new
+    {
+        Status = "Healthy",
+        Time = DateTime.UtcNow
+    });
+});
+
+
 app.Run();
