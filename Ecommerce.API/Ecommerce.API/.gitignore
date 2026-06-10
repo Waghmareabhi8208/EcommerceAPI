@@ -1,0 +1,33 @@
+# Environment Variables
+.env
+
+# Build Output
+bin/
+obj/
+
+# Visual Studio
+.vs/
+
+# User-specific files
+*.user
+*.suo
+
+# Visual Studio Code
+.vscode/
+
+# Logs
+Logs/
+*.log
+
+# Docker
+docker-compose.override.yml
+
+# OS Files
+Thumbs.db
+Desktop.ini
+
+# Rider
+.idea/
+
+# Package files
+*.nupkg

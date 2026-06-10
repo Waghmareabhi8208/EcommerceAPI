@@ -32,8 +32,11 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - ConnectionStrings__DefaultConnection=Server=sqlserver-container;Database=EcommerceDb;User Id=sa;Password=YourStrong@Pass123;TrustServerCertificate=true;
-      - Redis__ConnectionString=redis-container:6379
+      - ConnectionStrings__DefaultConnection=${SQL_CONNECTION}
+      - Redis__ConnectionString=${REDIS_CONNECTION}
+      - Jwt__Key=${JWT_KEY}
+      - Razorpay__Key=${RAZORPAY_KEY}
+      - Razorpay__Secret=${RAZORPAY_SECRET}
     networks:
       - ecommerce-network
 
