@@ -142,18 +142,47 @@ builder.Services.AddScoped<IPaymentService,PaymentService>();
 //builder.Services.AddSingleton<IConnectionMultiplexer>(
 //    ConnectionMultiplexer.Connect(redisOptions));
 
+//var redisConnectionString =
+//    builder.Configuration["Redis:ConnectionString"];
+
+//if (!string.IsNullOrWhiteSpace(redisConnectionString))
+//{
+//    var redisOptions =
+//        ConfigurationOptions.Parse(redisConnectionString);
+
+//    redisOptions.AbortOnConnectFail = false;
+
+//    builder.Services.AddSingleton<IConnectionMultiplexer>(
+//        ConnectionMultiplexer.Connect(redisOptions));
+//}
+
 var redisConnectionString =
     builder.Configuration["Redis:ConnectionString"];
 
+Console.WriteLine($"REDIS VALUE: {redisConnectionString}");
+
 if (!string.IsNullOrWhiteSpace(redisConnectionString))
 {
-    var redisOptions =
-        ConfigurationOptions.Parse(redisConnectionString);
+    try
+    {
+        var redisOptions =
+            ConfigurationOptions.Parse(redisConnectionString);
 
-    redisOptions.AbortOnConnectFail = false;
+        redisOptions.AbortOnConnectFail = false;
 
-    builder.Services.AddSingleton<IConnectionMultiplexer>(
-        ConnectionMultiplexer.Connect(redisOptions));
+        builder.Services.AddSingleton<IConnectionMultiplexer>(
+            ConnectionMultiplexer.Connect(redisOptions));
+
+        Console.WriteLine("REDIS REGISTERED SUCCESSFULLY");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"REDIS ERROR: {ex}");
+    }
+}
+else
+{
+    Console.WriteLine("REDIS VALUE IS EMPTY");
 }
 
 // Register Rate Limiter Service

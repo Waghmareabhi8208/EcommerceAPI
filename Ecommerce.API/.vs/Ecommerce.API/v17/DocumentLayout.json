@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|d:\\consulencypractise\\ecommerceapi\\ecommerce.api\\ecommerce.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|solutionrelative:ecommerce.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|d:\\consulencypractise\\ecommerceapi\\ecommerce.api\\ecommerce.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|solutionrelative:ecommerce.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|d:\\consulencypractise\\ecommerceapi\\ecommerce.api\\ecommerce.api\\ecommerce.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|solutionrelative:ecommerce.api\\ecommerce.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|d:\\consulencypractise\\ecommerceapi\\ecommerce.api\\ecommerce.api\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|solutionrelative:ecommerce.api\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|d:\\consulencypractise\\ecommerceapi\\ecommerce.api\\ecommerce.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|solutionrelative:ecommerce.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|d:\\consulencypractise\\ecommerceapi\\ecommerce.api\\ecommerce.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|solutionrelative:ecommerce.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,24 +30,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Ecommerce.API",
+              "DocumentMoniker": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\Ecommerce.API.csproj",
+              "RelativeDocumentMoniker": "Ecommerce.API\\Ecommerce.API.csproj",
+              "ToolTip": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\Ecommerce.API.csproj",
+              "RelativeToolTip": "Ecommerce.API\\Ecommerce.API.csproj",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-06-15T12:05:14.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Ecommerce.API\\Services\\AuthService.cs",
+              "ToolTip": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\Services\\AuthService.cs",
+              "RelativeToolTip": "Ecommerce.API\\Services\\AuthService.cs",
+              "ViewState": "AgIAAOAAAAAAAAAAAAAQwOsAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T12:00:20.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Ecommerce.API\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Ecommerce.API\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAzwGIAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T11:59:44.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\Program.cs",
               "RelativeDocumentMoniker": "Ecommerce.API\\Program.cs",
               "ToolTip": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\Program.cs",
               "RelativeToolTip": "Ecommerce.API\\Program.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAKoAAAAAAAAAAAAQwLkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-15T11:34:56.734Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\appsettings.json",
               "RelativeDocumentMoniker": "Ecommerce.API\\appsettings.json",
