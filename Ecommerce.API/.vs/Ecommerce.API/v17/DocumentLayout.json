@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|d:\\consulencypractise\\ecommerceapi\\ecommerce.api\\ecommerce.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|solutionrelative:ecommerce.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|d:\\consulencypractise\\ecommerceapi\\ecommerce.api\\ecommerce.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|solutionrelative:ecommerce.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,6 +35,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Ecommerce.API\\Data\\AppDbContext.cs",
+              "ToolTip": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Ecommerce.API\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAUwA8AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T08:15:56.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\Program.cs",
               "RelativeDocumentMoniker": "Ecommerce.API\\Program.cs",
@@ -43,7 +60,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": ".gitignore",
               "DocumentMoniker": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\.gitignore",
               "RelativeDocumentMoniker": "Ecommerce.API\\.gitignore",
@@ -51,12 +68,11 @@
               "RelativeToolTip": "Ecommerce.API\\.gitignore",
               "ViewState": "AgIAABsAAAAAAAAAAAAAACAAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-06-10T12:40:31.566Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-10T12:40:31.566Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "docker-compose.yml",
               "DocumentMoniker": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\docker-compose.yml",
               "RelativeDocumentMoniker": "Ecommerce.API\\docker-compose.yml",
@@ -68,7 +84,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": ".env",
               "DocumentMoniker": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\.env",
               "RelativeDocumentMoniker": "Ecommerce.API\\.env",
@@ -76,8 +92,7 @@
               "RelativeToolTip": "Ecommerce.API\\.env",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-06-10T12:14:51.379Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-10T12:14:51.379Z"
             }
           ]
         }
