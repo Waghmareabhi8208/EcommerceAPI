@@ -124,9 +124,16 @@ builder.Services.AddScoped<IAddressService, AddressService>();
 builder.Services.AddScoped<IPaymentService,PaymentService>();
 
 // Register Redis in Program.cs
+var redisConnectionString =
+    builder.Configuration["Redis:ConnectionString"];
+
+var redisOptions =
+    ConfigurationOptions.Parse(redisConnectionString!);
+
+redisOptions.AbortOnConnectFail = false;
+
 builder.Services.AddSingleton<IConnectionMultiplexer>(
-    ConnectionMultiplexer.Connect(
-        builder.Configuration["Redis:ConnectionString"]!));
+    ConnectionMultiplexer.Connect(redisOptions));
 
 // Register Rate Limiter Service
 builder.Services.AddRateLimiter(options =>
