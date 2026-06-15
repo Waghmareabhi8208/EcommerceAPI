@@ -74,9 +74,16 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 // Add Database using dependency injection with the help of DbContext
+//builder.Services.AddDbContext<AppDbContext>(options =>
+//{
+//    options.UseSqlServer(
+//        builder.Configuration.GetConnectionString("DefaultConnection"));
+//});
+
+// for deployment on railway conversion of database from SqlServer to PostgresSQL
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseSqlServer(
+    options.UseNpgsql(
         builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
@@ -124,16 +131,30 @@ builder.Services.AddScoped<IAddressService, AddressService>();
 builder.Services.AddScoped<IPaymentService,PaymentService>();
 
 // Register Redis in Program.cs
+//var redisConnectionString =
+//    builder.Configuration["Redis:ConnectionString"];
+
+//var redisOptions =
+//    ConfigurationOptions.Parse(redisConnectionString!);
+
+//redisOptions.AbortOnConnectFail = false;
+
+//builder.Services.AddSingleton<IConnectionMultiplexer>(
+//    ConnectionMultiplexer.Connect(redisOptions));
+
 var redisConnectionString =
     builder.Configuration["Redis:ConnectionString"];
 
-var redisOptions =
-    ConfigurationOptions.Parse(redisConnectionString!);
+if (!string.IsNullOrWhiteSpace(redisConnectionString))
+{
+    var redisOptions =
+        ConfigurationOptions.Parse(redisConnectionString);
 
-redisOptions.AbortOnConnectFail = false;
+    redisOptions.AbortOnConnectFail = false;
 
-builder.Services.AddSingleton<IConnectionMultiplexer>(
-    ConnectionMultiplexer.Connect(redisOptions));
+    builder.Services.AddSingleton<IConnectionMultiplexer>(
+        ConnectionMultiplexer.Connect(redisOptions));
+}
 
 // Register Rate Limiter Service
 builder.Services.AddRateLimiter(options =>
