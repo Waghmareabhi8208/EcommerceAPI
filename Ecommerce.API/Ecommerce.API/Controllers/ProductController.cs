@@ -80,6 +80,7 @@ namespace Ecommerce.API.Controllers
 
         // Api endpoint for uploading images of product by admin
         [HttpPost("{id}/upload-image")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UploadImage(int id,IFormFile file)
         {
             var imageUrl = await _service.UploadImageAsync(id, file);
@@ -97,6 +98,7 @@ namespace Ecommerce.API.Controllers
 
         // Api endpoint for deleting image of product by admin
         [HttpDelete("{id}/image")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteImage(int id)
         {
             bool deleted =
