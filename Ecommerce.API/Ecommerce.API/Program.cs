@@ -156,34 +156,24 @@ builder.Services.AddScoped<IPaymentService,PaymentService>();
 //        ConnectionMultiplexer.Connect(redisOptions));
 //}
 
-var redisConnectionString =
-    builder.Configuration["Redis:ConnectionString"];
+var redisHost = builder.Configuration["REDISHOST"];
+var redisPort = builder.Configuration["REDISPORT"];
+var redisPassword = builder.Configuration["REDISPASSWORD"];
 
-Console.WriteLine($"REDIS VALUE: {redisConnectionString}");
+// TEMP DEBUG LOGS
+Console.WriteLine($"HOST={redisHost}");
+Console.WriteLine($"PORT={redisPort}");
+Console.WriteLine($"PASSWORD EXISTS={!string.IsNullOrEmpty(redisPassword)}");
 
-if (!string.IsNullOrWhiteSpace(redisConnectionString))
+var redisOptions = new ConfigurationOptions
 {
-    try
-    {
-        var redisOptions =
-            ConfigurationOptions.Parse(redisConnectionString);
+    EndPoints = { $"{redisHost}:{redisPort}" },
+    Password = redisPassword,
+    AbortOnConnectFail = false
+};
 
-        redisOptions.AbortOnConnectFail = false;
-
-        builder.Services.AddSingleton<IConnectionMultiplexer>(
-            ConnectionMultiplexer.Connect(redisOptions));
-
-        Console.WriteLine("REDIS REGISTERED SUCCESSFULLY");
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"REDIS ERROR: {ex}");
-    }
-}
-else
-{
-    Console.WriteLine("REDIS VALUE IS EMPTY");
-}
+builder.Services.AddSingleton<IConnectionMultiplexer>(
+    ConnectionMultiplexer.Connect(redisOptions));
 
 // Register Rate Limiter Service
 builder.Services.AddRateLimiter(options =>
