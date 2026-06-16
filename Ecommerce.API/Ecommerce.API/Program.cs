@@ -131,39 +131,16 @@ builder.Services.AddScoped<IAddressService, AddressService>();
 builder.Services.AddScoped<IPaymentService,PaymentService>();
 
 // Register Redis in Program.cs
-//var redisConnectionString =
-//    builder.Configuration["Redis:ConnectionString"];
-
-//var redisOptions =
-//    ConfigurationOptions.Parse(redisConnectionString!);
-
-//redisOptions.AbortOnConnectFail = false;
-
-//builder.Services.AddSingleton<IConnectionMultiplexer>(
-//    ConnectionMultiplexer.Connect(redisOptions));
-
-//var redisConnectionString =
-//    builder.Configuration["Redis:ConnectionString"];
-
-//if (!string.IsNullOrWhiteSpace(redisConnectionString))
-//{
-//    var redisOptions =
-//        ConfigurationOptions.Parse(redisConnectionString);
-
-//    redisOptions.AbortOnConnectFail = false;
-
-//    builder.Services.AddSingleton<IConnectionMultiplexer>(
-//        ConnectionMultiplexer.Connect(redisOptions));
-//}
-
 var redisHost = builder.Configuration["REDISHOST"];
 var redisPort = builder.Configuration["REDISPORT"];
 var redisPassword = builder.Configuration["REDISPASSWORD"];
 
-// TEMP DEBUG LOGS
-Console.WriteLine($"HOST={redisHost}");
-Console.WriteLine($"PORT={redisPort}");
-Console.WriteLine($"PASSWORD EXISTS={!string.IsNullOrEmpty(redisPassword)}");
+if (string.IsNullOrWhiteSpace(redisHost) ||
+    string.IsNullOrWhiteSpace(redisPort))
+{
+    throw new InvalidOperationException(
+        "Redis configuration is missing.");
+}
 
 var redisOptions = new ConfigurationOptions
 {
@@ -172,7 +149,7 @@ var redisOptions = new ConfigurationOptions
     AbortOnConnectFail = false
 };
 
-builder.Services.AddSingleton<IConnectionMultiplexer>(
+builder.Services.AddSingleton<IConnectionMultiplexer>(_ =>
     ConnectionMultiplexer.Connect(redisOptions));
 
 // Register Rate Limiter Service

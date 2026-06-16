@@ -42,7 +42,8 @@
               "RelativeToolTip": "Ecommerce.API\\Ecommerce.API.csproj",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-06-15T12:05:14.153Z"
+              "WhenOpened": "2026-06-15T12:05:14.153Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -54,7 +55,8 @@
               "RelativeToolTip": "Ecommerce.API\\Services\\AuthService.cs",
               "ViewState": "AgIAAOAAAAAAAAAAAAAQwOsAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-15T12:00:20.277Z"
+              "WhenOpened": "2026-06-15T12:00:20.277Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -66,7 +68,8 @@
               "RelativeToolTip": "Ecommerce.API\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAFQAAAAAAAAAAAAzwGIAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-15T11:59:44.237Z"
+              "WhenOpened": "2026-06-15T11:59:44.237Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -76,7 +79,7 @@
               "RelativeDocumentMoniker": "Ecommerce.API\\Program.cs",
               "ToolTip": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\Program.cs",
               "RelativeToolTip": "Ecommerce.API\\Program.cs",
-              "ViewState": "AgIAAJsAAAAAAAAAAAAQwKUAAABNAAAAAAAAAA==",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAAAIQAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-15T11:34:56.734Z",
               "EditorCaption": ""
@@ -91,7 +94,8 @@
               "RelativeToolTip": "Ecommerce.API\\appsettings.json",
               "ViewState": "AgIAABcAAAAAAAAAAAAuwBwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-06-15T11:22:03.232Z"
+              "WhenOpened": "2026-06-15T11:22:03.232Z",
+              "EditorCaption": ""
             }
           ]
         }
