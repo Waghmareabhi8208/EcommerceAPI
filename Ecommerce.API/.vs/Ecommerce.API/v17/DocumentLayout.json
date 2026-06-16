@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|d:\\consulencypractise\\ecommerceapi\\ecommerce.api\\ecommerce.api\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|solutionrelative:ecommerce.api\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|d:\\consulencypractise\\ecommerceapi\\ecommerce.api\\ecommerce.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCAEB7B5-542B-4B90-A4E8-70353991A306}|Ecommerce.API\\Ecommerce.API.csproj|solutionrelative:ecommerce.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,6 +35,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "README.md",
+              "DocumentMoniker": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\README.md",
+              "RelativeDocumentMoniker": "Ecommerce.API\\README.md",
+              "ToolTip": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\README.md",
+              "RelativeToolTip": "Ecommerce.API\\README.md",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-06-16T12:22:32.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "ProductController.cs",
               "DocumentMoniker": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "Ecommerce.API\\Controllers\\ProductController.cs",
@@ -43,7 +60,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Ecommerce.API\\Controllers\\AuthController.cs",
@@ -51,12 +68,11 @@
               "RelativeToolTip": "Ecommerce.API\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAFQAAAAAAAAAAAA0wGEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-16T11:41:56.41Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-16T11:41:56.41Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "AuthService.cs",
               "DocumentMoniker": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "Ecommerce.API\\Services\\AuthService.cs",
@@ -64,12 +80,11 @@
               "RelativeToolTip": "Ecommerce.API\\Services\\AuthService.cs",
               "ViewState": "AgIAAPEAAAAAAAAAAAAwwAcAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-16T11:39:18.434Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-16T11:39:18.434Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\ConsulencyPractise\\EcommerceAPI\\Ecommerce.API\\Ecommerce.API\\Entities\\User.cs",
               "RelativeDocumentMoniker": "Ecommerce.API\\Entities\\User.cs",
@@ -77,8 +92,7 @@
               "RelativeToolTip": "Ecommerce.API\\Entities\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-16T11:38:50.604Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-16T11:38:50.604Z"
             }
           ]
         }
