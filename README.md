@@ -1,4 +1,5 @@
 Ecommerce API
+
 A production-ready E-Commerce Backend API built with ASP.NET Core 8, Entity Framework Core, PostgreSQL, Redis, JWT Authentication, and Docker. The application supports user authentication, role-based authorization, product management, cart management, order processing, refresh tokens, pagination, filtering, sorting, and cloud deployment.
 Live Demo
 Swagger Documentation
@@ -6,81 +7,93 @@ https://ecommerceapi-production-9bfd.up.railway.app/swagger
 ________________________________________
 Features
 Authentication & Authorization
-•	User Registration
-•	User Login
-•	JWT Access Tokens
-•	Refresh Tokens
-•	Logout Functionality
-•	Current User Endpoint
-•	Role-Based Authorization (Admin / Customer)
-•	BCrypt Password Hashing
+â€¢	User Registration
+â€¢	User Login
+â€¢	JWT Access Tokens
+â€¢	Refresh Tokens
+â€¢	Logout Functionality
+â€¢	Current User Endpoint
+â€¢	Role-Based Authorization (Admin / Customer)
+â€¢	BCrypt Password Hashing
+
 Product Management
-•	Create Product (Admin)
-•	Update Product (Admin)
-•	Delete Product (Admin)
-•	Get Product By Id
-•	Get All Products
-•	Product Image Upload
-•	Product Image Delete
+â€¢	Create Product (Admin)
+â€¢	Update Product (Admin)
+â€¢	Delete Product (Admin)
+â€¢	Get Product By Id
+â€¢	Get All Products
+â€¢	Product Image Upload
+â€¢	Product Image Delete
+
 Product Search & Filtering
-•	Search Products
-•	Filter By Price Range
-•	Filter By Stock Availability
-•	Sorting
-•	Pagination
+â€¢	Search Products
+â€¢	Filter By Price Range
+â€¢	Filter By Stock Availability
+â€¢	Sorting
+â€¢	Pagination
+
 Cart Management
-•	Add Product To Cart
-•	Update Cart Quantity
-•	Remove Product From Cart
-•	View User Cart
+â€¢	Add Product To Cart
+â€¢	Update Cart Quantity
+â€¢	Remove Product From Cart
+â€¢	View User Cart
 Order Management
-•	Place Order
-•	Order Items
-•	Shipping Address
-•	Order History
+â€¢	Place Order
+â€¢	Order Items
+â€¢	Shipping Address
+â€¢	Order History
+
 Security
-•	JWT Authentication
-•	Role-Based Authorization
-•	Password Hashing
-•	Refresh Token Storage In Redis
-•	Rate Limiting
+â€¢	JWT Authentication
+â€¢	Role-Based Authorization
+â€¢	Password Hashing
+â€¢	Refresh Token Storage In Redis
+â€¢	Rate Limiting
 Infrastructure
-•	PostgreSQL Database
-•	Redis Cache
-•	Docker Support
-•	Railway Deployment
-•	Serilog Logging
+â€¢	PostgreSQL Database
+â€¢	Redis Cache
+â€¢	Docker Support
+â€¢	Railway Deployment
+â€¢	Serilog Logging
 ________________________________________
 Tech Stack
+
 Backend
-•	ASP.NET Core 8 Web API
-•	C#
+â€¢	ASP.NET Core 8 Web API
+â€¢	C#
+
 Database
-•	PostgreSQL
-•	Entity Framework Core
+â€¢	PostgreSQL
+â€¢	Entity Framework Core
+
 Authentication
-•	JWT Bearer Authentication
-•	Refresh Tokens
+â€¢	JWT Bearer Authentication
+â€¢	Refresh Tokens
 Caching
-•	Redis
-•	StackExchange.Redis
+â€¢	Redis
+â€¢	StackExchange.Redis
+
 Logging
-•	Serilog
+â€¢	Serilog
+
 Deployment
-•	Docker
-•	Railway
+â€¢	Docker
+â€¢	Railway
 ________________________________________
 Architecture
-User | v ASP.NET Core API | +–> PostgreSQL | - Users | - Products | - Orders | - Cart | +–> Redis - Refresh Tokens
+User | v ASP.NET Core API | +â€“> PostgreSQL | - Users | - Products | - Orders | - Cart | +â€“> Redis - Refresh Tokens
 ________________________________________
 API Endpoints
+
 Authentication
+
 Method	Endpoint	Description
 POST	/api/Auth/register	Register User
 POST	/api/Auth/login	Login User
 POST	/api/Auth/refresh	Refresh Access Token
 POST	/api/Auth/logout	Logout User
 GET	/api/Auth/me	Current User
+
 Products
 Method	Endpoint	Description
 GET	/api/Product	Get Products
@@ -92,45 +105,58 @@ POST	/api/Product/{id}/upload-image	Upload Product Image (Admin)
 DELETE	/api/Product/{id}/image	Delete Product Image (Admin)
 ________________________________________
 Product Query Parameters
+
 Search
 GET /api/Product?search=iphone
+
 Price Filter
 GET /api/Product?minPrice=100&maxPrice=1000
+
 Stock Filter
 GET /api/Product?inStock=true
+
 Sorting
 GET /api/Product?sortBy=price
+
 Pagination
 GET /api/Product?pageNumber=1&pageSize=10
 ________________________________________
 Database
+
 Main Tables
-•	Users
-•	Products
-•	Carts
-•	CartItems
-•	Orders
-•	OrderItems
-•	Addresses
+â€¢	Users
+â€¢	Products
+â€¢	Carts
+â€¢	CartItems
+â€¢	Orders
+â€¢	OrderItems
+â€¢	Addresses
 ________________________________________
 Running Locally
+
 Clone Repository
 git clone https://github.com/Waghmareabhi8208/EcommerceAPI.git
 cd Ecommerce.API
+
 Restore Packages
 dotnet restore
+
 Apply Migrations
 Update-Database
+
 Run Application
 dotnet run
 ________________________________________
 Environment Variables
+
 PostgreSQL
 ConnectionStrings__DefaultConnection=<your-postgresql-connection-string>
+
 JWT
 Jwt__Key=<your-jwt-secret-key>
 Jwt__Issuer=<your-issuer>
 Jwt__Audience=<your-audience>
+
 Redis
 REDISHOST=<redis-host>
 REDISPORT=<redis-port>
@@ -140,21 +166,14 @@ Razorpay__Key=<your-razorpay-key>
 Razorpay__Secret=<your-razorpay-secret>
 ________________________________________
 Deployment
+
 The application is deployed on Railway using:
-•	Docker
-•	PostgreSQL Service
-•	Redis Service
-•	GitHub Continuous Deployment
+â€¢	Docker
+â€¢	PostgreSQL Service
+â€¢	Redis Service
+â€¢	GitHub Continuous Deployment
 Every push to the main branch automatically triggers a new deployment.
 ________________________________________
-Future Improvements
-•	Product Reviews & Ratings
-•	Wishlist
-•	Coupons & Discounts
-•	Email Notifications
-•	Order Tracking
-•	Cloud Storage Integration
-•	Unit & Integration Tests
-________________________________________
+
 Author
 Developed as a learning-focused production-grade backend project demonstrating modern ASP.NET Core development, authentication, caching, database management, cloud deployment, and scalable API architecture.
